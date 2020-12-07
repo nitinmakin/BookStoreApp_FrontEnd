@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatRadioModule} from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
  
 
 @NgModule({
@@ -21,6 +22,7 @@ import { ForgetPasswordComponent } from './components/forget-password/forget-pas
     RegisterComponent,
     LoginComponent,
     ForgetPasswordComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,
