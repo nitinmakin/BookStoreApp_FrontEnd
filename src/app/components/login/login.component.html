@@ -1,0 +1,56 @@
+
+<div class="main">
+
+
+<div fxLayout="row" fxLayoutAlign="center center"  class="topBar">
+    <h1 class="header">Book Store Login</h1>
+</div>
+
+
+
+<div class="mainContainer">
+
+<form [formGroup]="form" style="text-align: center;">
+    
+    <h4>To Continue To Book Store</h4><br>
+
+    <mat-form-field appearance="outline" class="Email">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="Email" required>
+        <mat-error *ngIf="form.controls.Email.hasError('required')">
+            email is required
+        </mat-error>
+        <mat-error *ngIf="form.controls.Email.hasError('email')&& !form.controls.Email.hasError('required')">
+            please enter valid email id
+        </mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="outline" class="Email">
+        <mat-label>Password</mat-label>
+        <input formControlName="Password" matInput [type]="hide ? 'password' : 'text'" required>
+        <mat-error
+            *ngIf="form.controls.Password.hasError('pattern') && !form.controls.Password.hasError('required')">
+            password must have atleast 1 letter, 1 number, 1symbol and 8 char long
+        </mat-error>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+    </mat-form-field><br><br>
+
+
+    <a href="/forget-password" class="ForgetPassword">Forgot password?</a><br><br>
+
+
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+        <a href="/register" class="CreateAccount">Create account</a>
+        <button type="submit" class="Button">Login</button>
+    </div>
+
+
+
+</form>
+</div>
+
+</div>

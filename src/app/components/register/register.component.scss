@@ -1,0 +1,101 @@
+.topBar{
+    height: 60px;
+    width: 100%;
+    background-color: rgb(197, 82, 82);
+    color: wheat;
+}
+
+.header{
+    font-size: xx-large;
+    margin-top: 10px;
+    // width: 100%;
+}
+
+.name{
+    width: 45%;
+
+}
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+.main{
+    margin-top: 30px;
+    height: 75%;
+    width: 48%;
+    border: 1px solid rgb(240, 240, 240);
+    display: flex;
+    justify-content: space-around;
+    margin-left: 20%;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 30px;
+    box-shadow: 0 .5px 1px 0 rgba(237, 186, 186, 0.323), 0 3px 10px 0 #ffc3c358;
+}
+.Link{
+    display: flex;
+      text-decoration: none;
+      margin-top: 3%;
+      color:  rgb(197, 82, 82);
+  }
+
+  .Button{
+    display: flex;
+   padding-top: 30px;
+   font-size: medium;
+   color:  rgb(197, 82, 82);
+   flex-direction: row;
+   justify-content: space-between;
+ //  padding-right: 40px;
+}
+  
+.nameContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+   width: 100%;
+}
+.RegisterButton{
+    width: 100px;
+    background-color: rgb(197, 82, 82);
+    color: wheat;
+}
+.Email{
+    width: 100%;
+}
+
+
+@media screen and (max-width:600px) {
+
+    .main{
+        width: 60%;
+        margin-left: 10%;
+    }
+}
+    @media screen and (max-width:500px) {
+
+
+        .main{
+            border: none;
+            margin-left: 6%;
+            width: 100%;
+            box-shadow: none;
+            height: 100%;
+        }
+
+        .nameContainer{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .name{
+            width: 100%;
+        }
+        .topBar{
+            height: 60px;
+            width: 145%;
+            background-color: rgb(197, 82, 82);
+            color: wheat;
+        }
+
+    
+    }
