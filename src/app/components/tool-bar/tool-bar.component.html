@@ -1,0 +1,34 @@
+<div class="topBar">
+
+
+<img src="../../../assets/Images/download.png" class="img">
+<h4 class="bookStoreHeader">BookStore</h4>
+
+<div fxHide.gt-xs>  <span class="material-icons searchIcon">search</span></div>
+<div class="SearchBar" fxHide.xs>
+  <mat-icon style="margin-top: 10px;">search</mat-icon>
+      <input type="search" placeholder="search" class="abc">
+</div>
+<h6 class="headerCart">cart</h6>
+<img src="../../../assets/Images/cartImage1.png" class="cartImg">
+
+
+
+<button mat-button [matMenuTriggerFor]="beforeMenu">
+    <img src="../../../assets/Images/imgIcon.png"  class="logoutIcon"  alt="Avatar ">
+  </button>
+  <div fxLayoutAlign="center center" style="height: 300px;">
+
+  <mat-menu #beforeMenu="matMenu" xPosition="before" fxLayoutAlign="center center">
+    <div class="abc1">
+    <img src="../../../assets/Images/imgIcon.png"  class="logoutIcon1"  alt="Avatar "><br>
+    <p style="display: flex; justify-content: center;">Nitin Makin</p>
+    <p style="display: flex; justify-content: center;">nitinmakin124@gmail.com</p>
+    <input  type="submit" value="Sign out" class="LogoutButton">
+  </div>
+  </mat-menu>
+
+  </div>
+
+
+</div>

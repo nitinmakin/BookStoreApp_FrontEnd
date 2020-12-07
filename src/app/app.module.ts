@@ -14,7 +14,14 @@ import {MatRadioModule} from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
- 
+import { ToolBarComponent } from './components/tool-bar/tool-bar.component';
+import { DashBoardComponent } from './components/dash-board/dash-board.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { HttpClientModule } from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { RouterModule } from '@angular/router';
+
 
 @NgModule({
   declarations: [
@@ -23,6 +30,8 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     LoginComponent,
     ForgetPasswordComponent,
     ResetPasswordComponent,
+    ToolBarComponent,
+    DashBoardComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +44,12 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     MatInputModule,
     MatIconModule,
     MatRadioModule,
-    MatButtonModule
+    MatButtonModule,
+    MatMenuModule,
+    MatButtonToggleModule,
+    HttpClientModule,
+    MatSnackBarModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

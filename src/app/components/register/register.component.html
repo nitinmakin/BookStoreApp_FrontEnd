@@ -36,8 +36,8 @@
     </mat-form-field>
 </div>
 
-
-<mat-form-field appearance="outline" class="Email">
+<div class="nameContainer">
+<mat-form-field appearance="outline" class="name">
     <mat-label>Email</mat-label>
     <input formControlName="Email" matInput placeholder="pat@example.com" required>
     <mat-error *ngIf="form.controls.Email.hasError('required')">
@@ -49,20 +49,56 @@
     </mat-error>
 </mat-form-field>
 
+<mat-form-field appearance="outline" class="name">
+    <mat-label>Phone</mat-label>
+    <input formControlName="Phone" matInput placeholder="98760XXXXX" required>
+    <mat-error *ngIf="form.controls.Phone.hasError('required')">
+        Phone is required
+    </mat-error>
+</mat-form-field>
+</div>
 
 <mat-form-field appearance="outline" class="Email">
-    <mat-label>Phone</mat-label>
-    <input formControlName="Email" matInput placeholder="98760XXXXX" required>
-    <!-- <mat-error *ngIf="form.controls.Email.hasError('required')">
-        email is required
+    <mat-label>Address</mat-label>
+    <input formControlName="Address" matInput placeholder="eg: XYZ" required>
+    <mat-error *ngIf="form.controls.Address.hasError('required')">
+        Address is required
     </mat-error>
-    <mat-error
-        *ngIf="form.controls.Email.hasError('email')&& !form.controls.Email.hasError('required')">
-        please enter valid email id
-    </mat-error> -->
 </mat-form-field>
 
+
+<div class="nameContainer">
+
+<mat-form-field appearance="outline" class="name">
+    <mat-label>State</mat-label>
+    <input formControlName="State" matInput placeholder="eg: XYZ" required>
+    <mat-error *ngIf="form.controls.State.hasError('required')">
+        State is required
+    </mat-error>
+</mat-form-field>
+
+
+
+<mat-form-field appearance="outline" class="name">
+    <mat-label>City</mat-label>
+    <input formControlName="City" matInput placeholder="eg: XYZ" required>
+    <mat-error *ngIf="form.controls.City.hasError('required')">
+        City is required
+    </mat-error>
+</mat-form-field>
+
+</div>
+
     <div class="nameContainer">
+
+        <mat-form-field appearance="outline" class="name">
+            <mat-label>Pin</mat-label>
+            <input formControlName="Pin" matInput placeholder="eg: 711101" required>
+            <mat-error *ngIf="form.controls.Pin.hasError('required')">
+                Pin is required
+            </mat-error>
+        </mat-form-field>
+
     <mat-form-field appearance="outline" class="name">
         <mat-label>Password</mat-label>
         <input formControlName="Password" matInput [type]="hide ? 'password' : 'text'" required>
@@ -75,32 +111,10 @@
         </mat-error>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="name">
-        <mat-label>Confirm</mat-label>
-        <input formControlName="Conform" matInput [type]="hide ? 'password' : 'text'" required>
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-            [attr.aria-pressed]="hide">
-
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-
-            <mat-error
-                *ngIf="form.controls.Conform.hasError('pattern') && !form.controls.Conform.hasError('required')">
-                password must have atleast 1 letter, 1 number, 1symbol and 8 char long
-            </mat-error>
-        </button>
-    </mat-form-field>
-
-   
-    </div><br>
-    <mat-radio-group aria-label="Select an option" >
-        <mat-radio-button value="1">Male</mat-radio-button>
-        <mat-radio-button value="2">Female</mat-radio-button>
-      <br><br>
-      </mat-radio-group>
-
+    </div>
       <div class="Button">
         <a href="/login" class="Link">sign in instead</a>
-        <button type="submit" class="RegisterButton">Register</button>
+        <button type="submit" class="RegisterButton" (click)="LoadData()">Register</button>
     </div>
 
 </form> 

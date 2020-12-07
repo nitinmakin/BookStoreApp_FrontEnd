@@ -1,0 +1,90 @@
+.topBar{
+    display: flex;
+    width: 100%;
+    height: 55px;
+    background-color: brown;
+   
+}
+
+.img{
+    height: 80%;
+    width: 50px;
+    padding-left: 40px;
+    margin-top: 6px;
+}
+
+.bookStoreHeader{
+    color: wheat;
+    font-size: x-large;
+    margin-top: 12px;
+    padding-left: 4px;
+}
+
+.abc{
+    border: none;
+    width: 100% ;
+    margin-left: 10px;
+    background-color:white;
+    font-size: larger;
+    outline: none;
+  
+  }
+  .SearchBar{
+  border-color: rgb(212, 212, 212);
+  width: 550px;
+  height: 40px;
+  border: none;
+  background-color: white;
+  border-radius: 10px;
+  size: 40px;
+  outline: none;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: 40px;
+  margin-top: 7px;
+  }
+
+  .searchIcon{
+      margin-top: 15px;
+      margin-left: 10px;
+  }
+
+  .headerCart{
+      margin-left: 150px;
+      color: white;
+      margin-top: 14px;
+      font-size: larger;
+     
+  }
+
+  .cartImg{
+    height: 80%;
+    width: 50px;
+  margin-left: 10px;
+    margin-top: 6px;
+}
+
+
+logoutIcon{
+ 
+   border-radius: 60%;
+   margin-left: 50px;
+  }
+  
+  .logoutIcon1{
+    margin-left: 65px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+ 
+
+
+  .abc1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    }
