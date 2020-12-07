@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from "../../../environments/environment";
-//import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HttpServiceService } from "../httpService/http-service.service";
 
 @Injectable({
@@ -30,5 +30,14 @@ export class UserService {
     console.log("user service called");
     return this.httpService.post(`${this.baseUrl}User/ForgetPassword`, user);
   }
-
+  
+  resetPassword(data, token) {
+    let options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token
+      })
+    }
+    return this.httpService.post(`${this.baseUrl}User/ResetPassword/`, data, true, options)
+  }
 }
