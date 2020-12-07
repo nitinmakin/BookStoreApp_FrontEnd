@@ -26,6 +26,9 @@ export class UserService {
     return this.httpService.post(`${this.baseUrl}User/Login`, user);
   }
 
-  
+  forgetPassword(user) {
+    console.log("user service called");
+    return this.httpService.post(`${this.baseUrl}User/ForgetPassword`, user);
+  }
 
 }
