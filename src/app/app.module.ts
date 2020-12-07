@@ -21,6 +21,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterModule } from '@angular/router';
+import { AdminPanalComponent } from './components/admin-panal/admin-panal.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { RouterModule } from '@angular/router';
     ResetPasswordComponent,
     ToolBarComponent,
     DashBoardComponent,
+    AdminPanalComponent,
   ],
   imports: [
     BrowserModule,

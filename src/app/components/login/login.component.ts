@@ -41,6 +41,10 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('LastName',result.data.lastName);
    
         console.log(result)
+
+        if(localStorage.getItem('role') == 'Admin')
+        this._route.navigate(['admin'])
+        else
       this._route.navigate(['dashboard'])
       },
         (error) => {

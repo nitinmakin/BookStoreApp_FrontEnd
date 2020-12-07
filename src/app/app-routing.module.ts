@@ -6,6 +6,7 @@ import { ForgetPasswordComponent } from "./components/forget-password/forget-pas
 import { ResetPasswordComponent } from "./components/reset-password/reset-password.component";
 import { DashBoardComponent } from "./components/dash-board/dash-board.component";
 import { AuthGuard } from './auth.guard';
+import { AdminPanalComponent } from './components/admin-panal/admin-panal.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,9 @@ const routes: Routes = [
   },
   {
     path:'dashboard',component:DashBoardComponent, canActivate: [AuthGuard]
+  },
+  {
+    path:'admin',component:AdminPanalComponent
   }
 ];
 
