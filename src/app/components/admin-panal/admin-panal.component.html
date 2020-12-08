@@ -1,8 +1,9 @@
 <app-tool-bar [childMessage]="Admin"></app-tool-bar>
-<div class="adminTable">
 
 
 
+
+<div class="adminTable" >
   <div style="display: flex; justify-content: space-between;">
 <mat-form-field>
     <mat-label>Filter</mat-label>
@@ -94,3 +95,8 @@
 
 
 </div>
+
+<mat-paginator [length]="100"
+              [pageSize]="8"
+              [pageSizeOptions]="[8, 10, 25, 100]">
+</mat-paginator>

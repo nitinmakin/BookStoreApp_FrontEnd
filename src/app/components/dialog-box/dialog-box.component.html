@@ -1,0 +1,70 @@
+
+<div [hidden]="IsmodelShow">
+
+<form [formGroup]="form"  style="width: 100%;">
+
+    <div class="nameContainer">
+       <mat-form-field appearance="outline" class="name">
+           <mat-label>Name</mat-label>
+           <input formControlName="Name" matInput placeholder=" Name" required>
+           <mat-error *ngIf="form.controls.Name.hasError('required')">
+               First Name is required
+           </mat-error>
+       </mat-form-field>
+   
+       <mat-form-field appearance="outline" class="name">
+           <mat-label>Author Name</mat-label>
+           <input formControlName="Author" matInput placeholder="Author Name" required>
+           <mat-error *ngIf="form.controls.Author.hasError('required')">
+            Author Name is required
+           </mat-error>
+       </mat-form-field>
+   </div>
+   
+   <div class="nameContainer">
+   <mat-form-field appearance="outline" class="name">
+       <mat-label>Catetory</mat-label>
+       <input formControlName="Catetory" matInput placeholder="Book Catetory" required>
+       <mat-error *ngIf="form.controls.Catetory.hasError('required')">
+        Book Catetory is required
+       </mat-error>
+   </mat-form-field>
+   
+   <mat-form-field appearance="outline" class="name">
+       <mat-label>Quantity</mat-label>
+       <input formControlName="Quantity" matInput placeholder="Quantity" required>
+       <mat-error *ngIf="form.controls.Quantity.hasError('required')">
+        Quantity is required
+       </mat-error>
+   </mat-form-field>
+   </div>
+
+   
+   
+   <div class="nameContainer">
+   
+   <mat-form-field appearance="outline" class="name">
+       <mat-label>Price</mat-label>
+       <input formControlName="Price" matInput placeholder="Price" required>
+       <mat-error *ngIf="form.controls.Price.hasError('required')">
+        Price is required
+       </mat-error>
+   </mat-form-field>
+   
+   
+   
+   <mat-form-field appearance="outline" class="name">
+       <mat-label>Image</mat-label>
+       <input formControlName="Image" matInput placeholder="Image Url" required>
+       <mat-error *ngIf="form.controls.Image.hasError('required')">
+        Image is required
+       </mat-error>
+   </mat-form-field>
+   
+   </div>
+         <div class="Button">
+           <a href="/admin" class="Link">Close</a>
+           <button type="submit" class="RegisterButton" (click)="addBooks()">Add</button>
+       </div>
+   
+   </form> </div>

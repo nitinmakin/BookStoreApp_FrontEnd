@@ -26,7 +26,8 @@ import { AdminPanalComponent } from './components/admin-panal/admin-panal.compon
 import {MatTableModule} from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatDialogModule} from '@angular/material/dialog';
-
+import { DialogBoxComponent } from './components/dialog-box/dialog-box.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     ToolBarComponent,
     DashBoardComponent,
     AdminPanalComponent,
+    DialogBoxComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +60,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     RouterModule,
     MatTableModule,
     MatToolbarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

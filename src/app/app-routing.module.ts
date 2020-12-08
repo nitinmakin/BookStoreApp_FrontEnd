@@ -7,6 +7,7 @@ import { ResetPasswordComponent } from "./components/reset-password/reset-passwo
 import { DashBoardComponent } from "./components/dash-board/dash-board.component";
 import { AuthGuard } from './auth.guard';
 import { AdminPanalComponent } from './components/admin-panal/admin-panal.component';
+import { DialogBoxComponent } from "./components/dialog-box/dialog-box.component";
 
 const routes: Routes = [
   {
@@ -26,6 +27,9 @@ const routes: Routes = [
   },
   {
     path:'admin',component:AdminPanalComponent
+  },
+  {
+    path:'dialogBox',component:DialogBoxComponent
   }
 ];
 

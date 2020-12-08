@@ -1,18 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,AfterViewInit, ViewChild} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
-//import {MatTableModule} from '@angular/material/table';
 import { BookService } from "../../service/bookService/book.service";
 import {MatDialog} from '@angular/material/dialog';
-import { RegisterComponent } from "../register/register.component";
+import { DialogBoxComponent } from "../dialog-box/dialog-box.component";
+import {MatPaginator} from '@angular/material/paginator';
+import { DataService } from "../../service/dataService/data.service";
 
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
+//import {MatSort} from '@angular/material/sort';
 
 @Component({
   selector: 'app-admin-panal',
@@ -20,21 +14,23 @@ export interface PeriodicElement {
   styleUrls: ['./admin-panal.component.scss']
 })
 export class AdminPanalComponent implements OnInit {
-  
+  reset = true
   book=[];
   dataSource:any;
+  
   displayedColumns: string[] = ['id','image', 'name', 'author', 'price','quantity','category','update','delete'];
- 
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+ // @ViewChild(MatSort) sort: MatSort;
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-
-  constructor(private books:BookService,public dialog: MatDialog) { }
+  constructor(private books:BookService,public dialog: MatDialog,private data:DataService) { }
   Admin = "Admin";
-  displayNotes() {
+  displayBooks() {
     this.books.getBooks().subscribe(result => {
       this.book = result['data'];  
      this.book.reverse();
@@ -47,18 +43,22 @@ export class AdminPanalComponent implements OnInit {
       })
   }
 
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
 
   openDialog() {
-    const dialogRef = this.dialog.open(RegisterComponent);
+    const dialogRef = this.dialog.open(DialogBoxComponent);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
   }
 
-
   ngOnInit(): void {
-    this.displayNotes()
+    this.displayBooks()
+   this.dataSource.paginator = this.paginator;
+   this.data.currentMessage.subscribe(data=>{ this.displayBooks()});
   }
 
 }
