@@ -38,7 +38,7 @@ export class AdminPanalComponent implements OnInit {
   
   book=[];
   dataSource:any;
-  displayedColumns: string[] = ['id', 'name', 'author', 'price','quantity','category','update','delete'];
+  displayedColumns: string[] = ['id','image', 'name', 'author', 'price','quantity','category','update','delete'];
  
 
   applyFilter(event: Event) {

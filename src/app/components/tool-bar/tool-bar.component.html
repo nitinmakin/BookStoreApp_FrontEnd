@@ -43,7 +43,7 @@
             <img src="../../../assets/Images/imgIcon.png" alt="Avatar " class="innerPosition a"><br><br>
             <p style="margin-left: 35%;">{{name}}</p>
             <p style="margin-left: 16%;">{{email}}</p><br><br><br>
-            <input type="submit" value="Sign out"  class="logoutButton">
+            <input type="submit" value="Sign out"  class="logoutButton" (click)="logout()">
         </mat-menu>
 
         <mat-card *ngIf="dispalySearchBar" class="input-card">

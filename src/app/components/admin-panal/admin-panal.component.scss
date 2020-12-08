@@ -20,7 +20,10 @@
 table {
     width: 100%;
   }
-  
+  .image{
+    height: 30px;
+    width: 30px;
+}
   .mat-form-field {
     font-size: 14px;
     width: 90%;
@@ -36,4 +39,10 @@ table {
       height: 60px;
       width: 60px;
      
+  }
+
+  .addIcon{
+      background-color:  #A03037;
+      margin-right: 13px;
+      margin-top: 7px;
   }
