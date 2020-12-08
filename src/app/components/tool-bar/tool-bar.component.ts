@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input} from '@angular/core';
 import { Router } from '@angular/router';
 import { UtilityService } from "../../service/utilityService/utility.service";
 
@@ -10,6 +10,20 @@ import { UtilityService } from "../../service/utilityService/utility.service";
 export class ToolBarComponent implements OnInit {
 
   constructor(private route:Router, private snackBar:UtilityService) { }
+
+  @Input() childMessage: string;
+  dispalyimg=null
+  dispalySearchBar=null
+  message=null
+
+
+name1 = localStorage.getItem('FirstName');
+name2 = localStorage.getItem('LastName');
+a = " ";
+name=`${this.name1}${this.a}${this.name1}`;
+email = localStorage.getItem('email');
+
+
   logout() {
        localStorage.removeItem('token');
        localStorage.removeItem('role');
@@ -19,7 +33,23 @@ export class ToolBarComponent implements OnInit {
        this.route.navigate(['login'])
        this.snackBar.snakeBarMethod("logout successfully.")   
   }
+
+
   ngOnInit(): void {
+    if (this.childMessage == "Admin"){
+      this.dispalyimg=false;
+     this.dispalySearchBar=false;
+     this.message="Admin Panal"
+    
+    }
+    else{
+      this.dispalyimg=true;
+      this.dispalySearchBar=true;
+      this.message="User DashBoard"
+    }
   }
+
+
+
 
 }

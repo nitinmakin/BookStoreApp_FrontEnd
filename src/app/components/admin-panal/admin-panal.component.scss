@@ -1,12 +1,39 @@
 .topBar{
     height: 60px;
     width: 100%;
-    background-color: rgb(197, 82, 82);
-    color: wheat;
-    text-align: center;
+    background-color:  #A03037;
+    color: white;
+    display: flex;
+    justify-content: start;
 }
 
 .header{
     font-size: xx-large;
-    margin-top: 10px;  
+    margin-top: 13px;  
 }
+
+.font{
+    font-size: large;
+    font-weight: bold;
+    color: rgb(79, 78, 78);
+}
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 90%;
+  }
+
+  .adminTable{
+      padding-left: 10px;
+      padding-right: 10px;
+      margin-top: 20px;
+  }
+
+  .bookImage{
+      height: 60px;
+      width: 60px;
+     
+  }

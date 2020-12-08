@@ -1,5 +1,4 @@
-<div class="topBar">
-
+<!-- <div class="topBar">
 
 <img src="../../../assets/Images/download.png" class="img">
 <h4 class="bookStoreHeader">BookStore</h4>
@@ -10,9 +9,7 @@
       <input type="search" placeholder="search" class="abc">
 </div>
 <h6 class="headerCart">cart</h6>
-<img src="../../../assets/Images/cartImage1.png" class="cartImg">
-
-
+<img src="../../../assets/Images/education.svg" class="cartImg">
 
 <button mat-button [matMenuTriggerFor]="beforeMenu">
     <img src="../../../assets/Images/imgIcon.png"  class="logoutIcon"  alt="Avatar ">
@@ -31,4 +28,35 @@
   </div>
 
 
+</div> -->
+
+<div>
+    <mat-toolbar class="toolbar">
+        <img class="logo" src="../../../assets/Images/education.svg">
+        <span class="title">Book Store</span>
+        <span class="title1">{{message}}</span>
+
+        <button mat-button [matMenuTriggerFor]="beforeMenu" class="marMatIcon">
+            <img src="../../../assets/Images/imgIcon.png"alt="Avatar " class="prfIcon">
+        </button>
+        <mat-menu #beforeMenu="matMenu" xPosition="before">
+            <img src="../../../assets/Images/imgIcon.png" alt="Avatar " class="innerPosition a"><br><br>
+            <p style="margin-left: 35%;">{{name}}</p>
+            <p style="margin-left: 16%;">{{email}}</p><br><br><br>
+            <input type="submit" value="Sign out"  class="logoutButton">
+        </mat-menu>
+
+        <mat-card *ngIf="dispalySearchBar" class="input-card">
+            <mat-icon class="icon">search</mat-icon>
+            <div class="input-feild">
+                <input type="search" placeholder="search..">
+            </div>
+        </mat-card>
+        <div *ngIf="dispalyimg" class="cart-div">
+            <div>
+                <mat-icon><img class="cart-logo" src="../../../assets/Images/supermarket.svg"></mat-icon>
+                <span class="cart">Cart</span>
+            </div>
+        </div>
+    </mat-toolbar>
 </div>

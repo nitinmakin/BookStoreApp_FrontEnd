@@ -22,6 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterModule } from '@angular/router';
 import { AdminPanalComponent } from './components/admin-panal/admin-panal.component';
+//import {MatTableDataSource} from '@angular/material/table';
+import {MatTableModule} from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 @NgModule({
@@ -51,7 +54,9 @@ import { AdminPanalComponent } from './components/admin-panal/admin-panal.compon
     MatButtonToggleModule,
     HttpClientModule,
     MatSnackBarModule,
-    RouterModule
+    RouterModule,
+    MatTableModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

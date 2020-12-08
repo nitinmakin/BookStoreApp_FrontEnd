@@ -1,95 +1,192 @@
-.topBar{
-    display: flex;
-    width: 100%;
-    height: 55px;
-    background-color: brown;
+// .topBar{
+//     display: flex;
+//     width: 100%;
+//     height: 55px;
+//     background-color: #A03037;
    
-}
+// }
 
-.img{
-    height: 80%;
-    width: 50px;
-    padding-left: 40px;
-    margin-top: 6px;
-}
+// .img{
+//     height: 80%;
+//     width: 50px;
+//     padding-left: 40px;
+//     margin-top: 6px;
+// }
 
-.bookStoreHeader{
-    color: wheat;
-    font-size: x-large;
-    margin-top: 12px;
-    padding-left: 4px;
-}
+// .bookStoreHeader{
+//     color: wheat;
+//     font-size: x-large;
+//     margin-top: 12px;
+//     padding-left: 4px;
+// }
 
-.abc{
-    border: none;
-    width: 100% ;
-    margin-left: 10px;
-    background-color:white;
-    font-size: larger;
-    outline: none;
+// .abc{
+//     border: none;
+//     width: 100% ;
+//     margin-left: 10px;
+//     background-color:white;
+//     font-size: larger;
+//     outline: none;
   
-  }
-  .SearchBar{
-  border-color: rgb(212, 212, 212);
-  width: 550px;
-  height: 40px;
-  border: none;
-  background-color: white;
-  border-radius: 10px;
-  size: 40px;
-  outline: none;
-  display: flex;
-  justify-content: flex-start;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-left: 40px;
-  margin-top: 7px;
-  }
+//   }
+//   .SearchBar{
+//   border-color: rgb(212, 212, 212);
+//   width: 550px;
+//   height: 40px;
+//   border: none;
+//   background-color: white;
+//   border-radius: 10px;
+//   size: 40px;
+//   outline: none;
+//   display: flex;
+//   justify-content: flex-start;
+//   padding-left: 20px;
+//   padding-right: 20px;
+//   margin-left: 40px;
+//   margin-top: 7px;
+//   }
 
-  .searchIcon{
-      margin-top: 15px;
-      margin-left: 10px;
-  }
+//   .searchIcon{
+//       margin-top: 15px;
+//       margin-left: 10px;
+//   }
 
-  .headerCart{
-      margin-left: 150px;
-      color: white;
-      margin-top: 14px;
-      font-size: larger;
+//   .headerCart{
+//       margin-left: 150px;
+//       color: white;
+//       margin-top: 14px;
+//       font-size: larger;
      
-  }
+//   }
 
-  .cartImg{
-    height: 80%;
-    width: 50px;
-  margin-left: 10px;
-    margin-top: 6px;
+//   .cartImg{
+//     height: 80%;
+//     width: 50px;
+//   margin-left: 10px;
+//     margin-top: 6px;
    
+// }
+
+// ::ng-deep .mat-menu-panel .abc{
+//     width: 250px;
+//     height: 300px;
+    
+//   }
+// logoutIcon{
+ 
+//   // border-radius: 60%;
+//    margin-left: 50px;
+//    border-radius: 50%;
+//   }
+  
+//   .logoutIcon1{
+//     margin-left: 65px;
+//     height: 40px;
+//     width: 40px;
+//     border-radius: 50%;
+//   }
+ 
+
+
+//   .abc1{
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     padding: 10px;
+//     }
+
+
+.logoutButton{
+    margin-top: 13%;
+    margin-left: 30%;
+    width: 100px;
+    height: 40px;
+    background-color:#A03037 ;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+.innerPosition{
+    margin-left: 40%;
 }
 
-::ng-deep .mat-menu-panel .abc{
-    width: 250px;
-    height: 300px;
-    
-  }
-logoutIcon{
- 
-   border-radius: 60%;
-   margin-left: 50px;
-  }
-  
-  .logoutIcon1{
-    margin-left: 65px;
-    height: 40px;
-    width: 40px;
+.prfIcon{
     border-radius: 50%;
-  }
- 
+    height: 45px;
+    width:45px;
+}
+ ::ng-deep .mat-menu-panel {
+     width: 250px;
+     height: 300px;
+ }
+
+.a{
+    height: 50px;
+    widows: 50px;
+    border-radius: 50%;
+}
 
 
-  .abc1{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 10px;
-    }
+.toolbar{
+    background: #A03037;
+    padding: 0%;
+   
+}
+.title{
+    color: #ffff;
+    margin-left: 1%;
+}
+
+
+.title1{
+    color: #ffff;
+    margin-left: 30%;
+    font-size: xx-large;
+
+
+}
+.logo{
+    margin-left: 4%;
+}
+
+.cart{
+    color: #ffff;
+    font-size: small;
+}
+.cart-logo{
+    margin-top: 10px;
+}
+
+.cart-div{
+    margin-left: 4%;
+}
+
+.input-card {
+    width: 47vw;
+    height: 1.8vh;
+    margin-left: 4vw;
+    transition: none !important;
+    box-shadow: none !important;
+    background-color: white;
+}
+.input-feild {
+    width: 44.6vw;
+    margin-top: -42px;
+    padding-left: 35px;
+}
+
+.input-feild input {
+    width: 80%;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    font-weight: lighter;
+    background-color: white;
+}
+.icon{
+    margin-bottom: 10px;
+}
+
+.marMatIcon{
+    margin-left: 33%;
+}

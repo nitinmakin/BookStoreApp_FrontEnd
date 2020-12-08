@@ -1,4 +1,88 @@
-<div fxLayout="row" fxLayoutAlign="center center"  class="topBar">
-    <h1 class="header">Admin Panal</h1>
-</div>
+<app-tool-bar [childMessage]="Admin"></app-tool-bar>
+<div class="adminTable">
+<mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+  </mat-form-field>
+  
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
+  <div>
+  
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef class="font"> Id </th>
+      <td mat-cell *matCellDef="let element" > {{element.id}} </td>
+    </ng-container>
+  
+
+    <!-- <ng-container matColumnDef="image">
+        <th mat-header-cell *matHeaderCellDef> image </th>
+        <td mat-cell *matCellDef="let element" > {{element.image}} </td>
+      </ng-container> -->
+
+ 
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef class="font"> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="author">
+      <th mat-header-cell *matHeaderCellDef class="font"> Author </th>
+      <td mat-cell *matCellDef="let element"> {{element.author}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef class="font"> Category </th>
+        <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef class="font"> Quantity </th>
+        <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+      </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef class="font"> Price </th>
+      <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="update">
+        <th mat-header-cell *matHeaderCellDef class="font"> Update </th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon" style="
+            background-color: #A03037;">
+              <mat-icon>edit</mat-icon>
+            </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef class="font"> Delete </th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon" style="
+            background-color: #A03037;">
+              <mat-icon>delete</mat-icon>
+            </button>
+        
+        </td>
+      </ng-container>
+
+
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+   
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr></div>
+
+  </table>
+
+
+
+
+
+
+
+</div>

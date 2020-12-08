@@ -1,4 +1,33 @@
 import { Component, OnInit } from '@angular/core';
+import {MatTableDataSource} from '@angular/material/table';
+//import {MatTableModule} from '@angular/material/table';
+import { BookService } from "../../service/bookService/book.service";
+
+
+export interface PeriodicElement {
+  name: string;
+  position: number;
+  weight: number;
+  symbol: string;
+}
+// const ELEMENT_DATA: PeriodicElement[] = [
+//   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
+//   {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
+//   {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
+//   {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
+//   {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
+//   {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
+//   {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
+//   {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
+//   {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
+//   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+// ];
+
+
+//const ELEMENT_DATA: PeriodicElement[] = [];
+
+
+
 
 @Component({
   selector: 'app-admin-panal',
@@ -6,10 +35,39 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-panal.component.scss']
 })
 export class AdminPanalComponent implements OnInit {
+  
+  book=[];
+  dataSource:any;
+  displayedColumns: string[] = ['id', 'name', 'author', 'price','quantity','category','update','delete'];
+ 
 
-  constructor() { }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+
+  constructor(private books:BookService) { }
+  Admin = "Admin";
+  displayNotes() {
+    this.books.getBooks().subscribe(result => {
+      this.book = result['data'];  
+     this.book.reverse();
+      console.log(this.book)
+     this.dataSource = new MatTableDataSource(this.book);
+      return this.book;
+    },
+      (error) => {
+        console.log(error)
+      })
+  }
+
+
+
+
 
   ngOnInit(): void {
+    this.displayNotes()
   }
 
 }
