@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 //import {MatTableModule} from '@angular/material/table';
 import { BookService } from "../../service/bookService/book.service";
+import {MatDialog} from '@angular/material/dialog';
+import { RegisterComponent } from "../register/register.component";
 
 
 export interface PeriodicElement {
@@ -10,23 +12,6 @@ export interface PeriodicElement {
   weight: number;
   symbol: string;
 }
-// const ELEMENT_DATA: PeriodicElement[] = [
-//   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-//   {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-//   {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-//   {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-//   {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-//   {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-//   {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-//   {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-//   {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-//   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-// ];
-
-
-//const ELEMENT_DATA: PeriodicElement[] = [];
-
-
 
 
 @Component({
@@ -47,7 +32,7 @@ export class AdminPanalComponent implements OnInit {
   }
 
 
-  constructor(private books:BookService) { }
+  constructor(private books:BookService,public dialog: MatDialog) { }
   Admin = "Admin";
   displayNotes() {
     this.books.getBooks().subscribe(result => {
@@ -63,7 +48,13 @@ export class AdminPanalComponent implements OnInit {
   }
 
 
+  openDialog() {
+    const dialogRef = this.dialog.open(RegisterComponent);
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 
 
   ngOnInit(): void {

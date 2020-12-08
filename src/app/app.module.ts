@@ -25,6 +25,7 @@ import { AdminPanalComponent } from './components/admin-panal/admin-panal.compon
 //import {MatTableDataSource} from '@angular/material/table';
 import {MatTableModule} from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatSnackBarModule,
     RouterModule,
     MatTableModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
