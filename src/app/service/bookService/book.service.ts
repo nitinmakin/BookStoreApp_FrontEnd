@@ -21,5 +21,8 @@ export class BookService {
     let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem('token') }) }
     return this.httpService.get(`${this.baseUrl}Books/Display`,true,options)
   }
-
+  deleteBooks(data){
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem('token') }) }
+    return this.httpService.delete(`${this.baseUrl}Books/${data}`,true,options)
+  }
 }
