@@ -44,10 +44,9 @@ export class DialogBoxComponent implements OnInit {
   clickEvent() {
     if (this.childMessage == 'Add')
       this.addBooks();
-      else
+    else
       this.updateNotes();
   }
-
   updateNotes() {
     let updateData = {
       "Name": (<HTMLInputElement>document.getElementById('name')).value,
@@ -56,7 +55,7 @@ export class DialogBoxComponent implements OnInit {
       "Quantity": (<HTMLInputElement>document.getElementById('quantity')).value,
       "Category": (<HTMLInputElement>document.getElementById('category')).value,
       "Price": (<HTMLInputElement>document.getElementById('price')).value,
-      "Id": this.data1.id, 
+      "Id": this.data1.id,
     }
     if (this.form.valid) {
       this.book.updateBooks(updateData).subscribe((result: any) => {
@@ -77,7 +76,6 @@ export class DialogBoxComponent implements OnInit {
       "Category": this.form.controls.Catetory.value,
       "Price": this.form.controls.Price.value,
     }
-
     if (this.form.valid) {
       this.book.addBooks(bookData).subscribe((result: any) => {
         this.snakeBar.snakeBarMethod("Book added Successfully")
