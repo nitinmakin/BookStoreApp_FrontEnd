@@ -28,6 +28,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogBoxComponent } from './components/dialog-box/dialog-box.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { AddBooksComponent } from './components/add-books/add-books.component';
+import { UpdateBooksComponent } from './components/update-books/update-books.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     DashBoardComponent,
     AdminPanalComponent,
     DialogBoxComponent,
+    AddBooksComponent,
+    UpdateBooksComponent,
   ],
   imports: [
     BrowserModule,
