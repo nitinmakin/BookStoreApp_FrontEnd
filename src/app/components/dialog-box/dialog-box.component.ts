@@ -55,7 +55,8 @@ export class DialogBoxComponent implements OnInit {
       "Quantity": (<HTMLInputElement>document.getElementById('quantity')).value,
       "Category": (<HTMLInputElement>document.getElementById('category')).value,
       "Price": (<HTMLInputElement>document.getElementById('price')).value,
-      "Id": this.data1.id,
+      "id": this.data1.id,
+      "AdminId":this.data1.adminId
     }
     if (this.form.valid) {
       this.book.updateBooks(updateData).subscribe((result: any) => {
@@ -77,10 +78,10 @@ export class DialogBoxComponent implements OnInit {
       "Price": this.form.controls.Price.value,
     }
     if (this.form.valid) {
+       this.data.changeMessage({});
       this.book.addBooks(bookData).subscribe((result: any) => {
         this.snakeBar.snakeBarMethod("Book added Successfully")
-        this.onNoClick();
-        this.data.changeMessage({});
+        this.onNoClick();   
       },
         (error) => {
           this.snakeBar.snakeBarMethod("OOPS..somethimg went wrong...")

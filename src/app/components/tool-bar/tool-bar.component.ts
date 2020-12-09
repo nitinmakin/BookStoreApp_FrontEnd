@@ -14,6 +14,7 @@ export class ToolBarComponent implements OnInit {
   @Input() childMessage: string;
   dispalyimg=null
   dispalySearchBar=null
+  displayTitle=null
   message=null
 
 
@@ -34,13 +35,12 @@ email = localStorage.getItem('email');
        this.snackBar.snakeBarMethod("logout successfully.")   
   }
 
-
   ngOnInit(): void {
     if (this.childMessage == "Admin"){
       this.dispalyimg=false;
      this.dispalySearchBar=false;
+     this.displayTitle=true;
      this.message="Admin Panal"
-    
     }
     else{
       this.dispalyimg=true;
@@ -48,8 +48,4 @@ email = localStorage.getItem('email');
       this.message="User DashBoard"
     }
   }
-
-
-
-
 }

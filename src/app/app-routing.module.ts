@@ -26,7 +26,7 @@ const routes: Routes = [
     path:'dashboard',component:DashBoardComponent, canActivate: [AuthGuard]
   },
   {
-    path:'admin',component:AdminPanalComponent
+    path:'admin',component:AdminPanalComponent, canActivate: [AuthGuard]
   },
   {
     path:'dialogBox',component:DialogBoxComponent

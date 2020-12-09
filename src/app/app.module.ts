@@ -30,6 +30,7 @@ import { DialogBoxComponent } from './components/dialog-box/dialog-box.component
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { AddBooksComponent } from './components/add-books/add-books.component';
 import { UpdateBooksComponent } from './components/update-books/update-books.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { UpdateBooksComponent } from './components/update-books/update-books.com
     MatTableModule,
     MatToolbarModule,
     MatDialogModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

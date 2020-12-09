@@ -1,8 +1,6 @@
 <!-- <div class="topBar">
-
 <img src="../../../assets/Images/download.png" class="img">
 <h4 class="bookStoreHeader">BookStore</h4>
-
 <div fxHide.gt-xs>  <span class="material-icons searchIcon">search</span></div>
 <div class="SearchBar" fxHide.xs>
   <mat-icon style="margin-top: 10px;">search</mat-icon>
@@ -10,12 +8,10 @@
 </div>
 <h6 class="headerCart">cart</h6>
 <img src="../../../assets/Images/education.svg" class="cartImg">
-
 <button mat-button [matMenuTriggerFor]="beforeMenu">
     <img src="../../../assets/Images/imgIcon.png"  class="logoutIcon"  alt="Avatar ">
   </button>
   <div fxLayoutAlign="center center" style="height: 300px;">
-
   <mat-menu #beforeMenu="matMenu" xPosition="before" fxLayoutAlign="center center">
     <div class="abc1">
     <img src="../../../assets/Images/imgIcon.png"  class="logoutIcon1"  alt="Avatar "><br>
@@ -24,28 +20,14 @@
     <input  type="submit" value="Sign out" (click)=" logout()" class="LogoutButton">
   </div>
   </mat-menu>
-
   </div>
-
-
 </div> -->
 
 <div>
     <mat-toolbar class="toolbar">
         <img class="logo" src="../../../assets/Images/education.svg">
         <span class="title">Book Store</span>
-        <span class="title1">{{message}}</span>
-
-        <button mat-button [matMenuTriggerFor]="beforeMenu" class="marMatIcon">
-            <img src="../../../assets/Images/imgIcon.png"alt="Avatar " class="prfIcon">
-        </button>
-        <mat-menu #beforeMenu="matMenu" xPosition="before">
-            <img src="../../../assets/Images/imgIcon.png" alt="Avatar " class="innerPosition a"><br><br>
-            <p style="margin-left: 35%;">{{name}}</p>
-            <p style="margin-left: 16%;">{{email}}</p><br><br><br>
-            <input type="submit" value="Sign out"  class="logoutButton" (click)="logout()">
-        </mat-menu>
-
+        <span class="title1" *ngIf="displayTitle">{{message}}</span>
         <mat-card *ngIf="dispalySearchBar" class="input-card">
             <mat-icon class="icon">search</mat-icon>
             <div class="input-feild">
@@ -58,5 +40,15 @@
                 <span class="cart">Cart</span>
             </div>
         </div>
+        <span class="settings"></span>
+        <button mat-button [matMenuTriggerFor]="beforeMenu">
+            <img src="../../../assets/Images/imgIcon.png"alt="Avatar " class="prfIcon">
+        </button>
+        <mat-menu #beforeMenu="matMenu" xPosition="before">
+            <img src="../../../assets/Images/unnamed.png" alt="Avatar " class="innerPosition a"><br><br>
+            <p style="margin-left: 35%;">{{name}}</p>
+            <p style="margin-left: 16%;">{{email}}</p><br>
+            <input type="submit" value="Sign out"  class="logoutButton" (click)="logout()">
+        </mat-menu>  
     </mat-toolbar>
 </div>

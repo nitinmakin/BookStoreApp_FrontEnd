@@ -31,7 +31,7 @@ export class AdminPanalComponent implements OnInit {
   ngOnInit(): void {
     this.displayBooks()
     this.dataSource.paginator = this.paginator;
-    // this.data.currentMessage.subscribe(data => { this.displayBooks() });
+    this.data.currentMessage.subscribe(data => { this.displayBooks() });
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
