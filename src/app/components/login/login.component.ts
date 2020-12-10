@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
       },
         (error) => {
           console.log(error)
-          this.snakeBar.snakeBarMethod("login unsuccessfully.")
+          this.snakeBar.snakeBarMethod("Incorrect Email or Password")
         
         })
     }

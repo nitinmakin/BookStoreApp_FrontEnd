@@ -65,8 +65,23 @@
 .Email{
     width: 100%;
 }
-
-
+.file{
+    margin-left: 123px;
+    margin-top: 5px;
+}
+.input-file{
+    outline: none;
+}
+.image{
+    display: flex;
+    justify-content: center;
+}
+.book-image{
+max-height: 200px;
+max-width: 100px;
+border: none;
+outline: none;
+}
 @media screen and (max-width:600px) {
 
     .main{

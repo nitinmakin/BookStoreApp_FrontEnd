@@ -2,6 +2,24 @@
 <div [hidden]="IsmodelShow">
 
 <form [formGroup]="form"  style="width: 100%;">
+
+
+    <div class="image">
+        <img class="book-image" [src]="url"  alt="">
+    </div>
+    <div class= "file">
+         <input type="file" class="input-file"  id="image" [(ngModel)]="element.image" formControlName="Image" (change)="selectFile($event)">
+        </div>
+
+    <!-- <mat-form-field appearance="outline" class="name">
+        <mat-label>Image</mat-label>
+        <input formControlName="Image" matInput placeholder="Image Url" id="image" [(ngModel)]="element.image"  required>
+        <mat-error *ngIf="form.controls.Image.hasError('required')">
+         Image is required
+        </mat-error>
+    </mat-form-field>
+    <span>Select Image</span> -->
+
     <div class="nameContainer">
        <mat-form-field appearance="outline" class="name">
            <mat-label>Name</mat-label>
@@ -47,14 +65,14 @@
         Price is required
        </mat-error>
    </mat-form-field>
-
+   
    <mat-form-field appearance="outline" class="name">
-       <mat-label>Image</mat-label>
-       <input formControlName="Image" matInput placeholder="Image Url" id="image" [(ngModel)]="element.image"  required>
-       <mat-error *ngIf="form.controls.Image.hasError('required')">
-        Image is required
-       </mat-error>
-   </mat-form-field>
+    <mat-label>Discription</mat-label>
+    <input formControlName="Discription" matInput placeholder="Image Url" id="discription" [(ngModel)]="element.discription"  required>
+    <mat-error *ngIf="form.controls.Discription.hasError('required')">
+     Image is required
+    </mat-error>
+</mat-form-field>
    
    </div>
          <div class="Button">

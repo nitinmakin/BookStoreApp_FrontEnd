@@ -6,11 +6,8 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 
   constructor() { }
-
-
+  
   isAuthenticate = false;
-
-
   isAuthenticated() {
     if (localStorage.getItem('token')) {
       return true;
@@ -18,7 +15,5 @@ export class AuthService {
     else {
       return false
     }
-
   }
-
 }

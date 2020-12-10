@@ -22,15 +22,15 @@ export class AdminPanalComponent implements OnInit {
   reset = true
   book = [];
   dataSource: any;
+  index = 1;
 
-
-  displayedColumns: string[] = ['id', 'image', 'name', 'author', 'price', 'quantity', 'category', 'update', 'delete'];
+  displayedColumns: string[] = ['index', 'image', 'name', 'author', 'price', 'quantity', 'category', 'update', 'delete'];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit(): void {
     this.displayBooks()
-    this.dataSource.paginator = this.paginator;
+
     this.data.currentMessage.subscribe(data => { this.displayBooks() });
   }
   applyFilter(event: Event) {
@@ -47,15 +47,11 @@ export class AdminPanalComponent implements OnInit {
       this.book.reverse();
       console.log(this.book)
       this.dataSource = new MatTableDataSource(this.book);
-      return this.book;
+      this.dataSource.paginator = this.paginator;
     },
       (error) => {
         console.log(error)
       })
-  }
-
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
   }
 
   openUpdateDialog(element) {

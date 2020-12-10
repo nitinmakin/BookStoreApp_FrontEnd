@@ -5,6 +5,9 @@ import { UtilityService } from "../../service/utilityService/utility.service";
 import { Router } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DataService } from "../../service/dataService/data.service";
+class ImageSnippet {
+  constructor(public src: string, public file: File) { }
+}
 
 
 @Component({
@@ -16,6 +19,10 @@ export class DialogBoxComponent implements OnInit {
   form: FormGroup;
   hide = true;
   fullName: string = "dcd"
+  selectedFile: ImageSnippet;
+  imageError: string;
+  isImageSaved: boolean;
+  cardImageBase64: string;
 
 
   IsmodelShow = false;
@@ -33,6 +40,8 @@ export class DialogBoxComponent implements OnInit {
       Quantity: [""],
       Image: [""],
       Price: [""],
+      Discription: [""],
+      //  Image1:[""]
     })
   }
   ngOnInit(): void {
@@ -51,15 +60,18 @@ export class DialogBoxComponent implements OnInit {
     let updateData = {
       "Name": (<HTMLInputElement>document.getElementById('name')).value,
       "Author": (<HTMLInputElement>document.getElementById('author')).value,
-      "Image": (<HTMLInputElement>document.getElementById('image')).value,
+      // "Image": (<HTMLInputElement>document.getElementById('image')).value,
       "Quantity": (<HTMLInputElement>document.getElementById('quantity')).value,
       "Category": (<HTMLInputElement>document.getElementById('category')).value,
       "Price": (<HTMLInputElement>document.getElementById('price')).value,
+      "Discription": (<HTMLInputElement>document.getElementById('discription')).value,
+      "Image":(<HTMLInputElement>document.getElementById('image')).value,
       "id": this.data1.id,
-      "AdminId":this.data1.adminId
+      "AdminId": this.data1.adminId
     }
     if (this.form.valid) {
       this.book.updateBooks(updateData).subscribe((result: any) => {
+        this.data.changeMessage({});
         this.snakeBar.snakeBarMethod("Book Updated successfully");
         this.onNoClick();
       },
@@ -69,25 +81,44 @@ export class DialogBoxComponent implements OnInit {
     }
   }
   addBooks() {
+
     let bookData = {
       "Name": this.form.controls.Name.value,
       "Author": this.form.controls.Author.value,
-      "Image": this.form.controls.Image.value,
+      "Image": this.url,
       "Quantity": this.form.controls.Quantity.value,
       "Category": this.form.controls.Catetory.value,
       "Price": this.form.controls.Price.value,
+      "Discription": this.form.controls.Discription.value
     }
+
     if (this.form.valid) {
-       this.data.changeMessage({});
       this.book.addBooks(bookData).subscribe((result: any) => {
         this.snakeBar.snakeBarMethod("Book added Successfully")
-        this.onNoClick();   
+        this.data.changeMessage({});
+        this.onNoClick();
       },
         (error) => {
           this.snakeBar.snakeBarMethod("OOPS..somethimg went wrong...")
         })
     }
   }
+  bookImage = null;
+  url: any[];
+  selectFile(event: any) {
+
+
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.onload = (event: any) => {
+        this.url = event.target.result;
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  }
+
+
+
   onNoClick(): void {
     this.dialogRef.close();
   }

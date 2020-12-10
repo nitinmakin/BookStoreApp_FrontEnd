@@ -23,11 +23,11 @@
   </div>
 </div> -->
 
-<div>
+
     <mat-toolbar class="toolbar">
         <img class="logo" src="../../../assets/Images/education.svg">
         <span class="title">Book Store</span>
-        <span class="title1" *ngIf="displayTitle">{{message}}</span>
+        <!-- <span class="title1" *ngIf="displayTitle">{{message}}</span> -->
         <mat-card *ngIf="dispalySearchBar" class="input-card">
             <mat-icon class="icon">search</mat-icon>
             <div class="input-feild">
@@ -51,4 +51,3 @@
             <input type="submit" value="Sign out"  class="logoutButton" (click)="logout()">
         </mat-menu>  
     </mat-toolbar>
-</div>

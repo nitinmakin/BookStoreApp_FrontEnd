@@ -55,7 +55,8 @@ constructor(private fb: FormBuilder,private userService: UserService, private sn
         this._route.navigate(['/login'])
       },
         (error) => {
-        this.snakeBar.snakeBarMethod("OOPS..somethimg went wrong...")
+        this.snakeBar.snakeBarMethod(error.error.message)
+       
           console.log(error)
         })
   
