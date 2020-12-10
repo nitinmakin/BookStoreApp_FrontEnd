@@ -65,7 +65,7 @@ export class DialogBoxComponent implements OnInit {
       "Category": (<HTMLInputElement>document.getElementById('category')).value,
       "Price": (<HTMLInputElement>document.getElementById('price')).value,
       "Discription": (<HTMLInputElement>document.getElementById('discription')).value,
-      "Image":(<HTMLInputElement>document.getElementById('image')).value,
+      "Image":this.url,
       "id": this.data1.id,
       "AdminId": this.data1.adminId
     }

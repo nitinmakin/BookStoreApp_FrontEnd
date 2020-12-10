@@ -31,6 +31,10 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { AddBooksComponent } from './components/add-books/add-books.component';
 import { UpdateBooksComponent } from './components/update-books/update-books.component';
 import { MatCardModule } from '@angular/material/card';
+import { DisplayBooksComponent } from './components/display-books/display-books.component';
+import { BooksComponent } from './components/books/books.component';
+import { CartComponent } from './components/cart/cart.component';
+import { WishListComponent } from './components/wish-list/wish-list.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +49,10 @@ import { MatCardModule } from '@angular/material/card';
     DialogBoxComponent,
     AddBooksComponent,
     UpdateBooksComponent,
+    DisplayBooksComponent,
+    BooksComponent,
+    CartComponent,
+    WishListComponent,
   ],
   imports: [
     BrowserModule,

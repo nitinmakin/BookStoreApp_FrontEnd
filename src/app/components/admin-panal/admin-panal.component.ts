@@ -41,7 +41,7 @@ export class AdminPanalComponent implements OnInit {
   constructor(private books: BookService, public dialog: MatDialog, private data: DataService,
     private snakeBar: UtilityService) { }
   Admin = "Admin";
-  displayBooks() {
+    displayBooks() {
     this.books.getBooks().subscribe(result => {
       this.book = result['data'];
       this.book.reverse();

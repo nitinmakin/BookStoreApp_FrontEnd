@@ -1,0 +1,98 @@
+@import"../../../styles.scss";
+  .MatCard{
+    margin-top: 30px;
+     width: 190px;
+     border-radius: 8px;
+     display: flex;
+     flex-direction: column;
+     flex-wrap: wrap;
+    height: 270px;
+    margin-left: 10px;
+    box-shadow: none;
+    border: 0.5px solid rgb(225, 224, 224);
+  }
+//  ::ng-deep.mat-cart {
+//     padding: 0px !important;
+//   }
+
+// .mat-card.mat-focus-indicator.MatCard{
+//     padding: 0px !important;
+// }
+// .mat-cart{
+//     padding: 0px !important;;
+// }
+  .Margin{
+    margin-left: 5%;
+    margin-right: 10%;
+    margin-top: 3%;
+   
+  }
+
+  .imageDiv{
+      width: 100%;
+      height: 50%;
+      background-color: rgb(247, 247, 247);
+  }
+
+  .innerImage{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+margin-left: 45px;
+background-color: white;
+height: 110px;
+width: 90px;
+
+    
+  }
+
+  .bookName{
+    margin-left: 10px;
+    margin-top: 8px;
+    font-size: large;
+ //   font: outline;
+  }
+
+  .authorName{
+    margin-left: 10px;
+    margin-bottom: 5px;
+    font-size: xx-small;
+    font: outline;
+    color: rgb(197, 197, 197);
+  }
+
+ .price{
+  margin-left: 10px;
+  margin-top: 1px;
+ // font-size: small;
+  font: outline;
+ // font-style: oblique;
+}
+
+.buttons{
+  margin-left: 10px;
+  margin-top: 17px;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.wishListButton{
+ width: 80px;
+  font-size: x-small;
+  height: 30px;
+  margin-left: 10px;
+  background-color: white;
+  border: 1px solid rgb(232, 232, 232);
+  outline: none;
+}
+.cartButton{
+  width: 80px;
+  font-size: xx-small;
+  height: 30px;
+  background-color: #A03037 ;
+  color: white;
+  border: none;
+  outline: none;
+}

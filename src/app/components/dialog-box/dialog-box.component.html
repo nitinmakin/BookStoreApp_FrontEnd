@@ -11,15 +11,6 @@
          <input type="file" class="input-file"  id="image" [(ngModel)]="element.image" formControlName="Image" (change)="selectFile($event)">
         </div>
 
-    <!-- <mat-form-field appearance="outline" class="name">
-        <mat-label>Image</mat-label>
-        <input formControlName="Image" matInput placeholder="Image Url" id="image" [(ngModel)]="element.image"  required>
-        <mat-error *ngIf="form.controls.Image.hasError('required')">
-         Image is required
-        </mat-error>
-    </mat-form-field>
-    <span>Select Image</span> -->
-
     <div class="nameContainer">
        <mat-form-field appearance="outline" class="name">
            <mat-label>Name</mat-label>

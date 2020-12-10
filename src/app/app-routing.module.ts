@@ -8,6 +8,10 @@ import { DashBoardComponent } from "./components/dash-board/dash-board.component
 import { AuthGuard } from './auth.guard';
 import { AdminPanalComponent } from './components/admin-panal/admin-panal.component';
 import { DialogBoxComponent } from "./components/dialog-box/dialog-box.component";
+import { BooksComponent } from "./components/books/books.component";
+import { CartComponent } from "./components/cart/cart.component";
+import { WishListComponent } from "./components/wish-list/wish-list.component";
+import { DisplayBooksComponent } from "./components/display-books/display-books.component";
 
 const routes: Routes = [
   {
@@ -23,13 +27,31 @@ const routes: Routes = [
    path: 'reset/:token',component: ResetPasswordComponent
   },
   {
-    path:'dashboard',component:DashBoardComponent, canActivate: [AuthGuard]
-  },
-  {
     path:'admin',component:AdminPanalComponent, canActivate: [AuthGuard]
   },
   {
     path:'dialogBox',component:DialogBoxComponent
+  },
+  {
+   path:'displaybooks', component:DisplayBooksComponent
+  },
+
+  {
+    path: "dashboard", component: DashBoardComponent, canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'books',
+        component: BooksComponent
+      },
+      {
+        path: 'wishlist',
+        component: WishListComponent
+      },
+      {
+        path: 'cart',
+        component: CartComponent
+      }
+    ]
   }
 ];
 

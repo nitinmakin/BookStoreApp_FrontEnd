@@ -1,0 +1,32 @@
+<div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="10px" class="Margin">
+
+
+    <mat-card class="MatCard removePadding" *ngFor="let book of bookArray;let i = index">
+        <div class="imageDiv" fxLayout="wrap">
+            <div class="innerImage">
+              
+            </div>
+        </div>
+
+
+        <div class="bookName">
+            {{book.name}}
+        </div>
+
+
+        <div class="authorName">
+            by {{book.author}}
+        </div>
+
+        
+        <div class="price">
+           Rs. {{book.price}}
+        </div>
+
+
+      <div class="buttons">
+<button type="submit" class="cartButton">Add To Cart</button>
+<button type="submit" class="wishListButton">WishList</button>
+</div>
+    </mat-card>
+</div>
