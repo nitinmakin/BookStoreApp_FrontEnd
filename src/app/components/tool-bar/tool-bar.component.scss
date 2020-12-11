@@ -112,8 +112,8 @@
 
 .prfIcon{
     border-radius: 50%;
-    height: 45px;
-    width:45px;
+    height: 35px;
+    width:35px;
 }
  ::ng-deep .mat-menu-panel {
      width: 250px;
@@ -133,13 +133,15 @@
    min-width: 800px;
   width: 100%;
   overflow: auto;
+  height: 55px;
+ 
    
    
 }
 .title{
     color: #ffff;
     margin-left: 1%;
-    font-size: xx-large;
+    font-size: large;
 
 }
 
@@ -152,37 +154,39 @@
 
 }
 .logo{
-    margin-left: 4%;
-    width: 50px;
-    height: 50px;
+    margin-left: 13%;
+    width: 35px;
+    height: 35px;
 }
 
 .cart{
     color: #ffff;
-    font-size: small;
+    font-size: x-small;
+    padding-top: 11px;
 }
 .cart-logo{
-    margin-top: 10px;
+    margin-top: 14px;
 }
 
 .cart-div{
-    margin-left: 4%;
+    margin-left: 10%;
 }
 .settings {
-    flex: 1.0  auto;
+    flex: 0.85  auto;
 }
 .input-card {
-    width: 47vw;
-    height: 1.8vh;
+    width: 560px;
+    height: 35px;
     margin-left: 4vw;
     transition: none !important;
     box-shadow: none !important;
     background-color: white;
 }
 .input-feild {
-    width: 44.6vw;
-    margin-top: -42px;
+    width: 400px;
+    margin-top: -39px;
     padding-left: 35px;
+    font-size: large;
 }
 
 .input-feild input {
@@ -193,8 +197,10 @@
     font-weight: lighter;
     background-color: white;
 }
-.icon{
-    margin-bottom: 10px;
+.icon1{
+  //  margin-bottom: 10px;
+  margin-top: 7px;
+  padding-left: 10px;
 }
 
 .marMatIcon{

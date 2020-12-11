@@ -2,16 +2,11 @@ import { Component, OnInit, AfterViewInit, ViewChild, Inject } from '@angular/co
 import { MatTableDataSource } from '@angular/material/table';
 import { BookService } from "../../service/bookService/book.service";
 import { MatDialog } from '@angular/material/dialog';
-import { DialogBoxComponent } from "../dialog-box/dialog-box.component";
 import { MatPaginator } from '@angular/material/paginator';
 import { DataService } from "../../service/dataService/data.service";
 import { UtilityService } from "../../service/utilityService/utility.service";
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { UpdateBooksComponent } from "../update-books/update-books.component";
 import { AddBooksComponent } from "../add-books/add-books.component";
-
-
-//import {MatSort} from '@angular/material/sort';
 
 @Component({
   selector: 'app-admin-panal',
@@ -41,7 +36,7 @@ export class AdminPanalComponent implements OnInit {
   constructor(private books: BookService, public dialog: MatDialog, private data: DataService,
     private snakeBar: UtilityService) { }
   Admin = "Admin";
-    displayBooks() {
+  displayBooks() {
     this.books.getBooks().subscribe(result => {
       this.book = result['data'];
       this.book.reverse();
@@ -53,7 +48,7 @@ export class AdminPanalComponent implements OnInit {
         console.log(error)
       })
   }
-
+  
   openUpdateDialog(element) {
     let dialogRef = this.dialog.open(UpdateBooksComponent, { data: element });
     dialogRef.afterClosed().subscribe(result => {
@@ -72,15 +67,10 @@ export class AdminPanalComponent implements OnInit {
     this.books.deleteBooks(element.id).subscribe((result: any) => {
       this.snakeBar.snakeBarMethod("Book deleted Successfully");
       this.displayBooks();
-      // this.operation.emit();
       this.data.changeMessage({});
     },
       (error) => {
         this.snakeBar.snakeBarMethod("OOPS..somethimg went wrong...")
       })
   }
-
-
-
-
 }

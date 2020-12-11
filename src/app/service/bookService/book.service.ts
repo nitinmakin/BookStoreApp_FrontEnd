@@ -17,10 +17,20 @@ export class BookService {
     return this.httpService.post(`${this.baseUrl}Books/Add`, data, true,options)
   }
 
+  addBookToCart(data) {
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem('token') }) }
+    return this.httpService.post(`${this.baseUrl}Cart/${data.id}`, data, true,options)
+  }
+
   getBooks(){
     let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem('token') }) }
     return this.httpService.get(`${this.baseUrl}Books/Display`,true,options)
   }
+
+getCartBooks(){
+  let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem('token') }) }
+  return this.httpService.get(`${this.baseUrl}Cart/Display`,true,options)
+}
 
   updateBooks(data){
     let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem('token') }) }

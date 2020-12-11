@@ -23,24 +23,24 @@
   </div>
 </div> -->
 
-
     <mat-toolbar class="toolbar">
         <img class="logo" src="../../../assets/Images/education.svg">
         <span class="title">Book Store</span>
-        <!-- <span class="title1" *ngIf="displayTitle">{{message}}</span> -->
-        <mat-card *ngIf="dispalySearchBar" class="input-card">
-            <mat-icon class="icon">search</mat-icon>
+        <div *ngIf="dispalySearchBar" class="input-card">
+            <mat-icon class="icon1">search</mat-icon>
             <div class="input-feild">
-                <input type="search" placeholder="search..">
-            </div>
-        </mat-card>
-        <div *ngIf="dispalyimg" class="cart-div">
-            <div>
-                <mat-icon><img class="cart-logo" src="../../../assets/Images/supermarket.svg"></mat-icon>
-                <span class="cart">Cart</span>
+                <input type="search" style="font-size: medium;" placeholder="search..">
             </div>
         </div>
-        <span class="settings"></span>
+
+        <div *ngIf="dispalyimg" class="cart-div">
+            <div style="display: flex; flex-direction: row;">
+                <h6 class="cart">Cart</h6>
+                <mat-icon><img class="cart-logo" src="../../../assets/Images/supermarket.svg"></mat-icon>
+            
+            </div>
+        </div>
+        <span class="settings" *ngIf="!dispalyimg"></span>
         <button mat-button [matMenuTriggerFor]="beforeMenu">
             <img src="../../../assets/Images/imgIcon.png"alt="Avatar " class="prfIcon">
         </button>

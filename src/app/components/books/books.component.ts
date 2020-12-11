@@ -21,14 +21,15 @@ export class BooksComponent implements OnInit {
 
   constructor(private books:BookService, private dataService:DataService) { }
 bookArray=[];
+length;
   ngOnInit(): void {
-    this.dataService.currentMessage.subscribe(data => { this.displayBooks() });
-
+    this.dataService.currentMessage.subscribe(data => { this.displayBooks()});
   }
   displayBooks() {
     this.books.getBooks().subscribe(result => {
       this.bookArray = result['data'];
       this.bookArray.reverse();
+      this.length=this.bookArray.length+1;
       console.log(this.bookArray)
       // this.dataSource = new MatTableDataSource(this.book);
       // this.dataSource.paginator = this.paginator;

@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
         if(localStorage.getItem('role') == 'Admin')
         this._route.navigate(['admin'])
         else
-      this._route.navigate(['dashboard'])
+      this._route.navigate(['dashboard/books'])
       },
         (error) => {
           console.log(error)
