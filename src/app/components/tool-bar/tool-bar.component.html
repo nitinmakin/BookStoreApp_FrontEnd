@@ -35,9 +35,11 @@
 
         <div *ngIf="dispalyimg" class="cart-div">
             <div style="display: flex; flex-direction: row;">
+             
                 <h6 class="cart">Cart</h6>
+                <button (click)="navigateCart()" class="cartButton">
                 <mat-icon><img class="cart-logo" src="../../../assets/Images/supermarket.svg"></mat-icon>
-            
+            </button>
             </div>
         </div>
         <span class="settings" *ngIf="!dispalyimg"></span>

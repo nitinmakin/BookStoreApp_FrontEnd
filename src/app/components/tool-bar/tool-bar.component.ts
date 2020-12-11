@@ -35,6 +35,10 @@ email = localStorage.getItem('email');
        this.snackBar.snakeBarMethod("logout successfully.")   
   }
 
+  navigateCart(){
+    this.route.navigate(['dashboard/cart'])
+    }
+    
   ngOnInit(): void {
     if (this.childMessage == "Admin"){
       this.dispalyimg=false;

@@ -1,12 +1,12 @@
-<div class="bookCount">
+<div class="bookCount"  *ngIf="displayBook">
     <div class="bookItm">
         <h5 class="BookNum">Books</h5>
         <h6 class="bookNum">({{bookArrayLength}} Items)</h6>
     </div>
 </div>
 
-<div fxLayout="row wrap" fxLayoutAlign="start start" class="Margin">
-    <div class="MatCard removePadding" *ngFor="let book of bookArray;let i = index">
+<div fxLayout="row wrap" fxLayoutAlign="start start" class="Margin" *ngIf="displayBook">
+    <div class="MatCard removePadding"  *ngFor="let book of bookArray;let i = index">
         <div class="imageDiv" fxLayout="wrap">
             <div class="innerImage">
                 <img src="{{book.image}}" alt="" style="width: 100%; height: 100%;">
