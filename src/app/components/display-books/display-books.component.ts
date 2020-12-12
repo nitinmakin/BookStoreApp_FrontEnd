@@ -19,6 +19,15 @@ export class DisplayBooksComponent implements OnInit {
 
 
 
+reset = true;
+orderSummary=true;
+name=localStorage.getItem('FirstName')
+address=localStorage.getItem('address')
+city=localStorage.getItem('city')
+state=localStorage.getItem('state')
+pin=localStorage.getItem('pin')
+phone=localStorage.getItem('phone')
+
 addBookToCart(data){
    this.bookService.addBookToCart(data).subscribe((result: any) => {
     this.snakeBar.snakeBarMethod("Book added to Cart Successfully")
@@ -29,6 +38,14 @@ addBookToCart(data){
     })
 }
 
+
+reserFalse(){
+  this.reset= false;
+}
+
+orderSummaryFalse(){
+  this.orderSummary = false;
+}
 removeBookFromCart(data){
 this.bookService.removeBookFromCart(data).subscribe((result: any)=>{
   console.log("data is "+ data)

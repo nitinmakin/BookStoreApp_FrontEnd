@@ -187,6 +187,24 @@ margin-left: 180px;
 
 }
 
+.customerDetails{
+  
+
+  width: 570px;
+  height: 10px auto;
+  border: 1px solid rgb(221, 221, 221);
+  margin-top: 10px;
+  padding-bottom: 16px;
+  margin-left: 180px;
+  padding-top: 10px;
+  padding-left: 50px;
+ // margin-bottom: 70px;
+
+
+}
+
+
+
 
 .removeButton{
 margin-left: 13px;
@@ -203,6 +221,21 @@ background-color: white;
 }
 
 
+.continueButtonDiv{
+ // width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+.continueButton{
+  width: 120px;
+  height: 30px;
+  border: none;
+  outline: none;
+  background-color: rgb(0, 0, 189);
+  color: white;
+}
+
 .orderButton{
   background-color: rgb(0, 0, 189);
   height: 30px;
@@ -210,4 +243,27 @@ background-color: white;
   color: white;
   border: none;
   outline: none;
+}
+.nameContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+ width: 80%;
+ //border: 1px solid rebeccapurple;
+}
+
+.name{
+width: 48%;
+ 
+
+}
+
+
+.example-full-width {
+  width: 80%;
+}
+
+
+.name1{
+  width: 32%;
 }

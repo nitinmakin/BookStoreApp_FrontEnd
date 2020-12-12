@@ -39,6 +39,13 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('email',result.data.email);
         localStorage.setItem('FirstName',result.data.firstName);
         localStorage.setItem('LastName',result.data.lastName);
+        localStorage.setItem('address',result.data.address);
+        localStorage.setItem('city',result.data.city);
+        localStorage.setItem('state',result.data.state);
+        localStorage.setItem('phone',result.data.phone);
+        localStorage.setItem('pin',result.data.pin);
+   
+   
    
         console.log(result)
 
