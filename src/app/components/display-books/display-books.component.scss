@@ -120,3 +120,94 @@ width: 65px;
   border: none;
   outline: none;
 }
+
+.cartBookDiv{
+
+width: 620px;
+height: 180px auto;
+border: 1px solid rgb(221, 221, 221);
+margin-top: 40px;
+padding-bottom: 16px;
+margin-left: 180px;
+}
+
+.cartNum{
+  display: flex;
+  flex-direction: row;
+  padding-left: 55px;
+ 
+}
+
+.fontSize{
+  font-size: large;
+  padding-top: 10px;
+}
+
+.forClass{
+  display: flex;
+  flex-direction: row;
+}
+.bookName1{
+  padding-top: 10px;
+  padding-left: 26px;
+}
+
+.authorName1{
+  font-size: xx-small;
+    font: outline;
+    color: rgb(197, 197, 197);
+}
+
+.minus{
+  border-radius: 50%;
+  border: none;
+  height: 23px;
+  width: 23px;
+  margin-right: 4px;
+  outline: none;
+  border: 1px solid rgb(228, 227, 227);
+}
+
+.plus{
+  border-radius: 50%;
+  border: none;
+  height: 23px;
+  width: 23px;
+  margin-left: 4px;
+  outline: none;
+  border: 1px solid rgb(228, 227, 227);
+}
+
+.numInput{
+  width: 20px;
+  height: 15px;
+  margin-top: 1.5px;
+  border: 1px solid rgb(228, 227, 227);
+  text-align: center;
+
+}
+
+
+.removeButton{
+margin-left: 13px;
+border: none;
+outline: none;
+background-color: white;
+}
+
+.orderButtonDiv{
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+
+}
+
+
+.orderButton{
+  background-color: rgb(0, 0, 189);
+  height: 30px;
+  width: 120px;
+  color: white;
+  border: none;
+  outline: none;
+}

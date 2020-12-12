@@ -21,13 +21,26 @@ export class DisplayBooksComponent implements OnInit {
 
 addBookToCart(data){
    this.bookService.addBookToCart(data).subscribe((result: any) => {
-    this.snakeBar.snakeBarMethod("Book added Successfully")
+    this.snakeBar.snakeBarMethod("Book added to Cart Successfully")
     this.data.changeMessage({});
    },
     (error) => {
       this.snakeBar.snakeBarMethod(error.error.message)
     })
 }
+
+removeBookFromCart(data){
+this.bookService.removeBookFromCart(data).subscribe((result: any)=>{
+  console.log("data is "+ data)
+  this.snakeBar.snakeBarMethod("Book removed from Cart")
+  this.data.changeMessage({});
+},
+(error)=>{
+  this.snakeBar.snakeBarMethod(error.error.message)
+  console.log("data is "+ data)
+})
+}
+
   ngOnInit(): void {
   }
 

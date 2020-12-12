@@ -41,4 +41,9 @@ getCartBooks(){
     let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem('token') }) }
     return this.httpService.delete(`${this.baseUrl}Books/${data}`,true,options)
   }
+
+  removeBookFromCart(data){
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem('token') }) }
+    return this.httpService.delete(`${this.baseUrl}Cart/Remove/${data.bookId}`,true,options)
+  }
 }
