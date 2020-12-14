@@ -1,55 +1,28 @@
-<!-- <div class="topBar">
-<img src="../../../assets/Images/download.png" class="img">
-<h4 class="bookStoreHeader">BookStore</h4>
-<div fxHide.gt-xs>  <span class="material-icons searchIcon">search</span></div>
-<div class="SearchBar" fxHide.xs>
-  <mat-icon style="margin-top: 10px;">search</mat-icon>
-      <input type="search" placeholder="search" class="abc">
-</div>
-<h6 class="headerCart">cart</h6>
-<img src="../../../assets/Images/education.svg" class="cartImg">
-<button mat-button [matMenuTriggerFor]="beforeMenu">
-    <img src="../../../assets/Images/imgIcon.png"  class="logoutIcon"  alt="Avatar ">
-  </button>
-  <div fxLayoutAlign="center center" style="height: 300px;">
-  <mat-menu #beforeMenu="matMenu" xPosition="before" fxLayoutAlign="center center">
-    <div class="abc1">
-    <img src="../../../assets/Images/imgIcon.png"  class="logoutIcon1"  alt="Avatar "><br>
-    <p style="display: flex; justify-content: center;">Nitin Makin</p>
-    <p style="display: flex; justify-content: center;">nitinmakin124@gmail.com</p>
-    <input  type="submit" value="Sign out" (click)=" logout()" class="LogoutButton">
-  </div>
-  </mat-menu>
-  </div>
-</div> -->
-
-    <mat-toolbar class="toolbar">
-        <img class="logo" src="../../../assets/Images/education.svg">
-        <span class="title">Book Store</span>
-        <div *ngIf="dispalySearchBar" class="input-card">
-            <mat-icon class="icon1">search</mat-icon>
-            <div class="input-feild">
-                <input type="search" style="font-size: medium;" placeholder="search..">
-            </div>
+<mat-toolbar class="toolbar">
+    <img class="logo" src="../../../assets/Images/education.svg">
+    <span class="title">Book Store</span>
+    <div *ngIf="dispalySearchBar" class="input-card">
+        <mat-icon class="icon1">search</mat-icon>
+        <div class="input-feild">
+            <input type="search" style="font-size: medium;" placeholder="search..">
         </div>
+    </div>
 
-        <div *ngIf="dispalyimg" class="cart-div">
-            <div style="display: flex; flex-direction: row;">
-             
-                <h6 class="cart">Cart</h6>
-                <button (click)="navigateCart()" class="cartButton">
-                <mat-icon><img class="cart-logo" src="../../../assets/Images/supermarket.svg"></mat-icon>
+    <div *ngIf="dispalyimg" class="cart-div">
+        <div style="display: flex; flex-direction: row;">
+            <button (click)="navigateCart()" class="cartButton">
+                <mat-icon matBadge="15"><img class="cart-logo" src="../../../assets/Images/supermarket.svg"></mat-icon>
             </button>
-            </div>
         </div>
-        <span class="settings" *ngIf="!dispalyimg"></span>
-        <button mat-button [matMenuTriggerFor]="beforeMenu">
-            <img src="../../../assets/Images/imgIcon.png"alt="Avatar " class="prfIcon">
-        </button>
-        <mat-menu #beforeMenu="matMenu" xPosition="before">
-            <img src="../../../assets/Images/unnamed.png" alt="Avatar " class="innerPosition a"><br><br>
-            <p style="margin-left: 35%;">{{name}}</p>
-            <p style="margin-left: 16%;">{{email}}</p><br>
-            <input type="submit" value="Sign out"  class="logoutButton" (click)="logout()">
-        </mat-menu>  
-    </mat-toolbar>
+    </div>
+    <span class="settings" *ngIf="!dispalyimg"></span>
+    <button mat-button [matMenuTriggerFor]="beforeMenu">
+        <img src="../../../assets/Images/imgIcon.png" alt="Avatar " class="prfIcon">
+    </button>
+    <mat-menu class="abc123" #beforeMenu="matMenu" xPosition="before">
+        <img src="../../../assets/Images/unnamed.png" alt="Avatar " class="innerPosition a"><br><br>
+        <p style="margin-left: 35%;">{{name}}</p>
+        <p style="margin-left: 16%;">{{email}}</p><br>
+        <input type="submit" value="Sign out" class="logoutButton" (click)="logout()">
+    </mat-menu>
+</mat-toolbar>

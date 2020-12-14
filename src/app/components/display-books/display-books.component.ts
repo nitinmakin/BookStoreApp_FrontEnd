@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BookService } from "../../service/bookService/book.service";
 import { DataService } from "../../service/dataService/data.service";
 import { UtilityService } from "../../service/utilityService/utility.service";
@@ -11,53 +11,81 @@ import { Router } from '@angular/router';
 })
 export class DisplayBooksComponent implements OnInit {
 
-  constructor(private bookService: BookService, private data:DataService, private snakeBar:UtilityService, private route:Router) { }
+  constructor(private bookService: BookService, private data: DataService, private snakeBar: UtilityService, private route: Router) { }
   @Input() bookArray: any;
   @Input() bookArrayLength;
-@Input() displayBook:any;
-@Input() displayCart:any;
+  @Input() displayBook: any;
+  @Input() displayCart: any;
+  // @Input() highToLowArray: any;
+  // @Input() highToLowCondition: any;
+
+  reset = true;
+  orderSummary = true;
+  //  highToLowArray = [];
+  // lowToHighArray = [];
+  //  highToLowCondition=false;
+  // lowToHighCondition = false;
+  name = localStorage.getItem('FirstName')
+  address = localStorage.getItem('address')
+  city = localStorage.getItem('city')
+  state = localStorage.getItem('state')
+  pin = localStorage.getItem('pin')
+  phone = localStorage.getItem('phone')
+
+  addBookToCart(data) {
+    this.bookService.addBookToCart(data).subscribe((result: any) => {
+      this.snakeBar.snakeBarMethod("Book added to Cart Successfully")
+      this.data.changeMessage({});
+    },
+      (error) => {
+        this.snakeBar.snakeBarMethod(error.error.message)
+      })
+  }
+
+  reserFalse() {
+    this.reset = false;
+  }
+
+  orderSummaryFalse() {
+    this.orderSummary = false;
+  }
+  removeBookFromCart(data) {
+    this.bookService.removeBookFromCart(data).subscribe((result: any) => {
+      this.snakeBar.snakeBarMethod("Book removed from Cart")
+      this.data.changeMessage({});
+    },
+      (error) => {
+        this.snakeBar.snakeBarMethod(error.error.message)
+        console.log("data is " + data)
+      })
+  }
+
+  increaseQuantity(data) {
+    this.bookService.increaseQuantity(data).subscribe((result: any) => {
+      this.data.changeMessage({});
+
+    });
+  }
 
 
+  decreaseQuantity(data) {
+    this.bookService.decreaseQuantity(data).subscribe((result: any) => {
+      this.data.changeMessage({});
+    });
+  }
 
-reset = true;
-orderSummary=true;
-name=localStorage.getItem('FirstName')
-address=localStorage.getItem('address')
-city=localStorage.getItem('city')
-state=localStorage.getItem('state')
-pin=localStorage.getItem('pin')
-phone=localStorage.getItem('phone')
-
-addBookToCart(data){
-   this.bookService.addBookToCart(data).subscribe((result: any) => {
-    this.snakeBar.snakeBarMethod("Book added to Cart Successfully")
-    this.data.changeMessage({});
-   },
-    (error) => {
-      this.snakeBar.snakeBarMethod(error.error.message)
-    })
-}
-
-
-reserFalse(){
-  this.reset= false;
-}
-
-orderSummaryFalse(){
-  this.orderSummary = false;
-}
-removeBookFromCart(data){
-this.bookService.removeBookFromCart(data).subscribe((result: any)=>{
-  console.log("data is "+ data)
-  this.snakeBar.snakeBarMethod("Book removed from Cart")
-  this.data.changeMessage({});
-},
-(error)=>{
-  this.snakeBar.snakeBarMethod(error.error.message)
-  console.log("data is "+ data)
-})
-}
-
+  placeOrder() {
+    this.bookService.placedOrder().subscribe((result: any) => {
+      this.snakeBar.snakeBarMethod("Order Placed Successfully");
+      this.route.navigate(['dashboard/books'])
+      this.data.changeMessage({});
+    },
+      (error) => {
+        this.snakeBar.snakeBarMethod(error.error.message);
+      }
+    )
+  }
+  
   ngOnInit(): void {
   }
 

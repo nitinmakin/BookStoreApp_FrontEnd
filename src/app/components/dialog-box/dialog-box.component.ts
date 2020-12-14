@@ -63,7 +63,7 @@ export class DialogBoxComponent implements OnInit {
       // "Image": (<HTMLInputElement>document.getElementById('image')).value,
       "Quantity": (<HTMLInputElement>document.getElementById('quantity')).value,
       "Category": (<HTMLInputElement>document.getElementById('category')).value,
-      "Price": (<HTMLInputElement>document.getElementById('price')).value,
+      "Price": parseInt((<HTMLInputElement>document.getElementById('price')).value),
       "Discription": (<HTMLInputElement>document.getElementById('discription')).value,
       "Image":this.url,
       "id": this.data1.id,
@@ -88,7 +88,7 @@ export class DialogBoxComponent implements OnInit {
       "Image": this.url,
       "Quantity": this.form.controls.Quantity.value,
       "Category": this.form.controls.Catetory.value,
-      "Price": this.form.controls.Price.value,
+      "Price": parseInt(this.form.controls.Price.value),
       "Discription": this.form.controls.Discription.value
     }
 

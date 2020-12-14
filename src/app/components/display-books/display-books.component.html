@@ -1,12 +1,19 @@
-<div class="bookCount" *ngIf="displayBook">
+<!-- <div class="bookCount">
     <div class="bookItm">
         <h5 class="BookNum">Books</h5>
         <h6 class="bookNum">({{bookArrayLength}} Items)</h6>
     </div>
-</div>
+    <button mat-button [matMenuTriggerFor]="menu" class="sortByRevelence">Sort by Price</button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="highToLow()">High To Low</button>
+        <button mat-menu-item (click)="lowToHigh()">Low To High</button>
+    </mat-menu>
+</div> -->
 
 <div fxLayout="row wrap" fxLayoutAlign="start start" class="Margin" *ngIf="displayBook">
     <div class="MatCard removePadding" *ngFor="let book of bookArray;let i = index">
+
+
         <div class="imageDiv" fxLayout="wrap">
             <div class="innerImage">
                 <img src="{{book.image}}" alt="" style="width: 100%; height: 100%;">
@@ -32,6 +39,7 @@
     </div>
 </div>
 
+
 <div class="cartBookDiv" *ngIf="!displayBook">
     <div class="cartNum">
         <h5 class="fontSize">My Cart</h5>
@@ -50,13 +58,13 @@
             </div>
 
             <div class="price1">
-                Rs. {{book.price}}
+                Rs. {{book.price * book.quantity}}
             </div>
 
             <div style="display: flex; flex-direction: row; margin-top: 28px;">
-                <button type="submit" class="minus">-</button>
-                <input type="text" class="numInput" value="1">
-                <button type="submit" class="plus">+</button>
+                <button type="submit" class="minus" (click)="decreaseQuantity(book)">-</button>
+                <input type="text" class="numInput" value="{{book.quantity}}" id="number">
+                <button type="submit" class="plus" (click)="increaseQuantity(book)">+</button>
                 <button type="submit" class="removeButton" (click)="removeBookFromCart(book)">Remove</button>
             </div>
         </div>
@@ -94,8 +102,6 @@
             <input matInput placeholder="eg: State" value="{{state}}" required>
         </mat-form-field>
 
-
-
         <mat-form-field appearance="outline" class="name1">
             <mat-label>City</mat-label>
             <input matInput placeholder="eg: City" value="{{city}}" required>
@@ -129,7 +135,6 @@
     <div *ngFor="let book of bookArray" class="forClass">
         <div class="innerImage">
             <img src="{{book.image}}" alt="" style="width: 100%; height: 100%;">
-
         </div>
 
         <div class="bookName1">
@@ -139,7 +144,7 @@
             </div>
 
             <div class="price1">
-                Rs. {{book.price}}
+                Rs. {{book.price * book.quantity}}
             </div>
         </div>
 
@@ -147,6 +152,6 @@
 
 
     <div class="continueButtonDiv">
-        <button class="continueButton">Check Out</button>
+        <button class="continueButton" (click)="placeOrder()">Check Out</button>
     </div>
 </div><br><br><br>

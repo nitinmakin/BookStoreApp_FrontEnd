@@ -46,4 +46,29 @@ getCartBooks(){
     let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem('token') }) }
     return this.httpService.delete(`${this.baseUrl}Cart/Remove/${data.bookId}`,true,options)
   }
+
+  placedOrder(){
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem('token') }) }
+    return this.httpService.get(`${this.baseUrl}Cart/PlaceOrder`,true,options)
+  }
+
+  increaseQuantity(data){
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem('token') }) }
+    return this.httpService.get(`${this.baseUrl}Cart/IncreaseQuantity/${data.bookId}`,true,options)
+  }
+
+  decreaseQuantity(data){
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem('token') }) }
+    return this.httpService.get(`${this.baseUrl}Cart/DecreaseQuantity/${data.bookId}`,true,options)
+  }
+
+  priceHighToLow(){
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem('token') }) }
+    return this.httpService.get(`${this.baseUrl}Books/PriceHighToLow`,true,options)
+  }
+
+  priceLowToHigh(){
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem('token') }) }
+    return this.httpService.get(`${this.baseUrl}Books/PriceLowToHigh`,true,options)
+  }
 }

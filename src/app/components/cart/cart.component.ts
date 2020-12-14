@@ -12,6 +12,7 @@ import { DataService } from "../../service/dataService/data.service";
 export class CartComponent implements OnInit {
 
   cartBookArray = [];
+  length1=4;
   length;
   constructor(private books: BookService, private dataService: DataService) { }
 

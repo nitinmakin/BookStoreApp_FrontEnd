@@ -34,6 +34,7 @@ import { DisplayBooksComponent } from './components/display-books/display-books.
 import { BooksComponent } from './components/books/books.component';
 import { CartComponent } from './components/cart/cart.component';
 import { WishListComponent } from './components/wish-list/wish-list.component';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { WishListComponent } from './components/wish-list/wish-list.component';
     MatToolbarModule,
     MatDialogModule,
     MatPaginatorModule,
-    MatCardModule
+    MatCardModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

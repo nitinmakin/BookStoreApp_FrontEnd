@@ -1,6 +1,7 @@
-import { Component, OnInit ,Input} from '@angular/core';
+import { Component, OnInit ,Input, ViewChild, AfterViewInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { UtilityService } from "../../service/utilityService/utility.service";
+import { CartComponent } from '../cart/cart.component';
 
 @Component({
   selector: 'app-tool-bar',
@@ -16,7 +17,8 @@ export class ToolBarComponent implements OnInit {
   dispalySearchBar=null
   displayTitle=null
   message=null
-
+  length:any;
+  @ViewChild(CartComponent) child;
 
 name1 = localStorage.getItem('FirstName');
 name2 = localStorage.getItem('LastName');
@@ -37,6 +39,7 @@ email = localStorage.getItem('email');
 
   navigateCart(){
     this.route.navigate(['dashboard/cart'])
+   
     }
     
   ngOnInit(): void {
@@ -45,11 +48,21 @@ email = localStorage.getItem('email');
      this.dispalySearchBar=false;
      this.displayTitle=true;
      this.message="Admin Panal"
+  
     }
     else{
       this.dispalyimg=true;
       this.dispalySearchBar=true;
       this.message="User DashBoard"
+   
     }
   }
+
+
+  // ngAfterViewInit() {
+  //   this.length = this.child.length1;
+  //   console.log("length is "+this.length);
+  // }
+
+
 }

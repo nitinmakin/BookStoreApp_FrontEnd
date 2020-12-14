@@ -1,0 +1,55 @@
+.bookItm{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+  
+  }
+
+.bookNum{
+  padding-top: 9px;
+  padding-left: 3px;
+  color: rgb(197, 191, 191);
+}
+
+.BookNum{
+  margin-left: 54px;
+  padding-left: 114px;
+  font-size: x-large;
+ padding-top: 7px;
+}
+  .bookCount{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1%;
+
+  }
+  .sortByRevelence{  
+    margin-left: 538px;
+    border: 0.5px solid rgb(214, 214, 214);
+//margin-bottom: 17px;
+height: 32px;
+padding-bottom: 15px;
+font-size: small;
+
+
+}
+
+
+.arrowDown{
+    margin-bottom: 2px;
+    padding-left: 3px;
+}
+
+  @media screen and (max-width:1282px) {
+    .sortByRevelence{
+        margin-left: 400px;
+     }   
+    }
+  
+  @media screen and (max-width:985px) {
+    .sortByRevelence{      
+        margin-left: 0%;
+    }
+        
+    }

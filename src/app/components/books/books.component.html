@@ -1,1 +1,20 @@
-<app-display-books  [bookArray]="bookArray" [bookArrayLength]=length [displayBook]="displayBook"></app-display-books>
+<div class="bookCount">
+    <div class="bookItm">
+        <h5 class="BookNum">Books</h5>
+        <h6 class="bookNum">({{length}} Items)</h6>
+    </div>
+    <button mat-button [matMenuTriggerFor]="menu" class="sortByRevelence">Sort by Price<span class="material-icons arrowDown">
+        expand_more
+        </span></button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="highToLow()">High To Low</button>
+        <button mat-menu-item (click)="lowToHigh()">Low To High</button>
+    </mat-menu>
+</div>
+
+<app-display-books  [bookArray]="bookArray" [displayBook]="displayBook"></app-display-books>
+
+
+
+   
+    

@@ -5,7 +5,7 @@
 
 
     <div class="image">
-        <img class="book-image" [src]="element.image"  alt="">
+        <img class="book-image" [src]="element.image" id="image123"  alt="">
     </div>
     <div class= "file">
          <input type="file" class="input-file"  id="image" [(ngModel)]="element.image" formControlName="Image" (change)="selectFile($event)">
