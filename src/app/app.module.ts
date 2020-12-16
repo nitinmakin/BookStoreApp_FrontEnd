@@ -35,6 +35,8 @@ import { BooksComponent } from './components/books/books.component';
 import { CartComponent } from './components/cart/cart.component';
 import { WishListComponent } from './components/wish-list/wish-list.component';
 import {MatBadgeModule} from '@angular/material/badge';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 @NgModule({
   declarations: [
@@ -76,7 +78,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatDialogModule,
     MatPaginatorModule,
     MatCardModule,
-    MatBadgeModule
+    MatBadgeModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

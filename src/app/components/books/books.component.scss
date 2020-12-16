@@ -27,14 +27,10 @@
   .sortByRevelence{  
     margin-left: 538px;
     border: 0.5px solid rgb(214, 214, 214);
-//margin-bottom: 17px;
 height: 32px;
 padding-bottom: 15px;
 font-size: small;
-
-
 }
-
 
 .arrowDown{
     margin-bottom: 2px;
@@ -52,4 +48,13 @@ font-size: small;
         margin-left: 0%;
     }
         
+    }
+
+    @media screen and (max-width:550px) {
+        .BookNum{
+            margin-left: 14px;
+            padding-left: 40px;
+            font-size: x-large;
+           padding-top: 7px;
+          }
     }

@@ -1,7 +1,9 @@
 <mat-toolbar class="toolbar">
     <img class="logo" src="../../../assets/Images/education.svg">
     <span class="title">Book Store</span>
-    <div *ngIf="dispalySearchBar" class="input-card">
+
+    <mat-icon class="icon2" fxHide.gt-xs>search</mat-icon>
+    <div *ngIf="dispalySearchBar" fxHide.xs class="input-card">
         <mat-icon class="icon1">search</mat-icon>
         <div class="input-feild">
             <input type="search" style="font-size: medium;" placeholder="search..">
@@ -11,7 +13,8 @@
     <div *ngIf="dispalyimg" class="cart-div">
         <div style="display: flex; flex-direction: row;">
             <button (click)="navigateCart()" class="cartButton">
-                <mat-icon matBadge="15"><img class="cart-logo" src="../../../assets/Images/supermarket.svg"></mat-icon>
+                <mat-icon matBadge="{{length}}"><img class="cart-logo" src="../../../assets/Images/supermarket.svg">
+                </mat-icon>
             </button>
         </div>
     </div>

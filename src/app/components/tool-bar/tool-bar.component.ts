@@ -2,6 +2,7 @@ import { Component, OnInit ,Input, ViewChild, AfterViewInit} from '@angular/core
 import { Router } from '@angular/router';
 import { UtilityService } from "../../service/utilityService/utility.service";
 import { CartComponent } from '../cart/cart.component';
+import { DataService } from "../../service/dataService/data.service";
 
 @Component({
   selector: 'app-tool-bar',
@@ -9,9 +10,25 @@ import { CartComponent } from '../cart/cart.component';
   styleUrls: ['./tool-bar.component.scss']
 })
 export class ToolBarComponent implements OnInit {
+  ngOnInit(): void {
+    if (this.childMessage == "Admin"){
+      this.dispalyimg=false;
+     this.dispalySearchBar=false;
+     this.displayTitle=true;
+     this.message="Admin Panal"
+    }
+    else{
+      this.dispalyimg=true;
+      this.dispalySearchBar=true;
+      this.message="User DashBoard"
+    }
 
-  constructor(private route:Router, private snackBar:UtilityService) { }
-
+this.dataService.currentMessage.subscribe(message => {
+  console.log("receved message  "+message);
+  this.length = message;
+})
+  }
+  constructor(private route:Router, private snackBar:UtilityService, private dataService:DataService) { }
   @Input() childMessage: string;
   dispalyimg=null
   dispalySearchBar=null
@@ -26,7 +43,6 @@ a = " ";
 name=`${this.name1}${this.a}${this.name1}`;
 email = localStorage.getItem('email');
 
-
   logout() {
        localStorage.removeItem('token');
        localStorage.removeItem('role');
@@ -39,30 +55,5 @@ email = localStorage.getItem('email');
 
   navigateCart(){
     this.route.navigate(['dashboard/cart'])
-   
     }
-    
-  ngOnInit(): void {
-    if (this.childMessage == "Admin"){
-      this.dispalyimg=false;
-     this.dispalySearchBar=false;
-     this.displayTitle=true;
-     this.message="Admin Panal"
-  
-    }
-    else{
-      this.dispalyimg=true;
-      this.dispalySearchBar=true;
-      this.message="User DashBoard"
-   
-    }
-  }
-
-
-  // ngAfterViewInit() {
-  //   this.length = this.child.length1;
-  //   console.log("length is "+this.length);
-  // }
-
-
 }

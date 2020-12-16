@@ -1,8 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { BookService } from "../../service/bookService/book.service";
 import { DataService } from "../../service/dataService/data.service";
 import { UtilityService } from "../../service/utilityService/utility.service";
 import { Router } from '@angular/router';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-display-books',
@@ -11,73 +13,76 @@ import { Router } from '@angular/router';
 })
 export class DisplayBooksComponent implements OnInit {
 
-  constructor(private bookService: BookService, private data: DataService, private snakeBar: UtilityService, private route: Router) { }
+  constructor(private bookService: BookService, private data: DataService, private snakeBar: UtilityService,
+    private route: Router, private dialog: MatDialog) { }
+
+
+  tutorials: any;
+  currentTutorial = null;
+  currentIndex = -1;
+  title = '';
+  page = 1;
+  count = 0;
+  pageSize = 3;
+  currentPage = 2;
+  pageSizes = 5;
+  showDiscription: any = [];
+
+
+  handlePageChange(event): void {
+    this.page = event;
+  }
+
+  handlePageSizeChange(event): void {
+    this.pageSize = event.target.value;
+    this.page = 1;
+  }
+
+
   @Input() bookArray: any;
   @Input() bookArrayLength;
   @Input() displayBook: any;
   @Input() displayCart: any;
-  // @Input() highToLowArray: any;
-  // @Input() highToLowCondition: any;
-
+  @Input() displayWishList: any;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   reset = true;
   orderSummary = true;
-  //  highToLowArray = [];
-  // lowToHighArray = [];
-  //  highToLowCondition=false;
-  // lowToHighCondition = false;
-  name = localStorage.getItem('FirstName')
-  address = localStorage.getItem('address')
-  city = localStorage.getItem('city')
-  state = localStorage.getItem('state')
-  pin = localStorage.getItem('pin')
-  phone = localStorage.getItem('phone')
+  cartCondition: any = [];
+
 
   addBookToCart(data) {
     this.bookService.addBookToCart(data).subscribe((result: any) => {
-      this.snakeBar.snakeBarMethod("Book added to Cart Successfully")
-      this.data.changeMessage({});
+     // this.cartConditionMethod(index);
+      this.snakeBar.snakeBarMethod("Book added to Cart Successfully");
+        this.data.changeMessage({});
     },
       (error) => {
         this.snakeBar.snakeBarMethod(error.error.message)
       })
   }
 
-  reserFalse() {
-    this.reset = false;
-  }
-
-  orderSummaryFalse() {
-    this.orderSummary = false;
-  }
-  removeBookFromCart(data) {
-    this.bookService.removeBookFromCart(data).subscribe((result: any) => {
-      this.snakeBar.snakeBarMethod("Book removed from Cart")
-      this.data.changeMessage({});
+  addBookToWishList(data) {
+    this.bookService.addBookToWishList(data).subscribe((result: any) => {
+      this.snakeBar.snakeBarMethod("Book added to Wishlist Successfully");
     },
       (error) => {
         this.snakeBar.snakeBarMethod(error.error.message)
-        console.log("data is " + data)
       })
   }
 
-  increaseQuantity(data) {
-    this.bookService.increaseQuantity(data).subscribe((result: any) => {
+  removeBookFromWishList(data) {
+    this.bookService.removeBookFromWishList(data).subscribe((result: any) => {
+      this.snakeBar.snakeBarMethod("book removed from Wishlist");
       this.data.changeMessage({});
-
-    });
+    },
+      (error) => {
+        this.snakeBar.snakeBarMethod(error.error.message);
+      })
   }
 
-
-  decreaseQuantity(data) {
-    this.bookService.decreaseQuantity(data).subscribe((result: any) => {
-      this.data.changeMessage({});
-    });
-  }
-
-  placeOrder() {
-    this.bookService.placedOrder().subscribe((result: any) => {
-      this.snakeBar.snakeBarMethod("Order Placed Successfully");
-      this.route.navigate(['dashboard/books'])
+  addToCartFromWishlist(data) {
+    this.bookService.addBookFromWishlistToCart(data).subscribe((result: any) => {
+      this.snakeBar.snakeBarMethod("Book Added to cart");
       this.data.changeMessage({});
     },
       (error) => {
@@ -85,8 +90,14 @@ export class DisplayBooksComponent implements OnInit {
       }
     )
   }
-  
-  ngOnInit(): void {
+  cartConditionMethod(index) {
+    this.cartCondition[index] = true;
   }
 
+  orderSummaryFalse() {
+    this.orderSummary = false;
+  }
+
+  ngOnInit(): void {
+  }
 }

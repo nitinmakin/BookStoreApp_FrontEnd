@@ -29,7 +29,7 @@ export class DialogBoxComponent implements OnInit {
   @Input() childMessage: string;
   @Input() id: any;
   @Input() element: any;
-
+ 
   constructor(private fb: FormBuilder, private book: BookService, public snakeBar: UtilityService,
     private route: Router, public dialogRef: MatDialogRef<DialogBoxComponent>,
     private data: DataService, @Inject(MAT_DIALOG_DATA) public data1: any,) {
@@ -81,7 +81,6 @@ export class DialogBoxComponent implements OnInit {
     }
   }
   addBooks() {
-
     let bookData = {
       "Name": this.form.controls.Name.value,
       "Author": this.form.controls.Author.value,

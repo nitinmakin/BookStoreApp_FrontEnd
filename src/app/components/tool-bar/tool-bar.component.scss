@@ -1,100 +1,3 @@
-// .topBar{
-//     display: flex;
-//     width: 100%;
-//     height: 55px;
-//     background-color: #A03037;
-   
-// }
-
-// .img{
-//     height: 80%;
-//     width: 50px;
-//     padding-left: 40px;
-//     margin-top: 6px;
-// }
-
-// .bookStoreHeader{
-//     color: wheat;
-//     font-size: x-large;
-//     margin-top: 12px;
-//     padding-left: 4px;
-// }
-
-// .abc{
-//     border: none;
-//     width: 100% ;
-//     margin-left: 10px;
-//     background-color:white;
-//     font-size: larger;
-//     outline: none;
-  
-//   }
-//   .SearchBar{
-//   border-color: rgb(212, 212, 212);
-//   width: 550px;
-//   height: 40px;
-//   border: none;
-//   background-color: white;
-//   border-radius: 10px;
-//   size: 40px;
-//   outline: none;
-//   display: flex;
-//   justify-content: flex-start;
-//   padding-left: 20px;
-//   padding-right: 20px;
-//   margin-left: 40px;
-//   margin-top: 7px;
-//   }
-
-//   .searchIcon{
-//       margin-top: 15px;
-//       margin-left: 10px;
-//   }
-
-//   .headerCart{
-//       margin-left: 150px;
-//       color: white;
-//       margin-top: 14px;
-//       font-size: larger;
-     
-//   }
-
-//   .cartImg{
-//     height: 80%;
-//     width: 50px;
-//   margin-left: 10px;
-//     margin-top: 6px;
-   
-// }
-
-// ::ng-deep .mat-menu-panel .abc{
-//     width: 250px;
-//     height: 300px;
-    
-//   }
-// logoutIcon{
- 
-//   // border-radius: 60%;
-//    margin-left: 50px;
-//    border-radius: 50%;
-//   }
-  
-//   .logoutIcon1{
-//     margin-left: 65px;
-//     height: 40px;
-//     width: 40px;
-//     border-radius: 50%;
-//   }
- 
-
-
-//   .abc1{
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     padding: 10px;
-//     }
-
 
 .logoutButton{
     margin-top: 0%;
@@ -105,6 +8,7 @@
     color: white;
     border: none;
     border-radius: 10px;
+    outline: none;
 }
 .innerPosition{
     margin-left: 40%;
@@ -120,11 +24,6 @@
      height: 250px;
  }
 
-//  .abc123{
-//      //height: 250px;
-//      width: 500px;
-//  }
-
 .a{
     height: 70px;
     widows: 70px;
@@ -135,9 +34,7 @@
 .toolbar{
     background: #A03037;
     padding: 0%;
-   min-width: 800px;
   width: 100%;
-  overflow: auto;
   height: 55px;
  
    
@@ -169,15 +66,12 @@
     font-size: x-small;
     padding-top: 11px;
 }
-// .cart-logo{
-//   //  margin-top: 14px;
-//  // padding-top: 14px;
-// }
+
 .cartButton{
     border: none;
     background: none;
     outline: none;
- //   margin-bottom: 10px;
+
 }
 .cart-div{
     margin-left: 10%;
@@ -209,10 +103,18 @@
     background-color: white;
 }
 .icon1{
-  //  margin-bottom: 10px;
   margin-top: 7px;
   padding-left: 10px;
+
 }
+
+.icon2{
+ 
+    margin-top: 7px;
+    padding-left: 10px;
+    color: rgb(238, 236, 236);
+  }
+  
 
 .marMatIcon{
    margin-left: 32%;
@@ -220,47 +122,58 @@
 }
 
 
-// @media screen and (max-width:1150px) {
-//     .marMatIcon{
-//         margin-left: 25%;
-//     }
-    
-    
-// }
 
-
-// @media screen and (max-width:950px) {
-//     .marMatIcon{
-//         margin-left: 20%;
-//     }
-    
-    
-// }
-
-
-
-// @media screen and (max-width:840px) {
-//     .marMatIcon{
-//         margin-left: 18%;
-//     }
-    
-//     .title1{
+@media screen and (max-width:909px) {
+  
+    .cart-div{
+        margin-left: 3%;
+    }
+    .input-card {
+        width: 460px;
       
-//         margin-left: 20%; 
-//     }
-// }
-
-
-// @media screen and (max-width:700px) {
-//     .marMatIcon{
-//         margin-left: 18%;
-//     }
-    
-//     .title1{
-      
-//         margin-left: 10%; 
-//     }
-
-
+    }
+    .input-feild {
+        width: 300px;
    
-// }
+    }
+    .logo{
+        margin-left: 8%;
+       
+    }
+}
+
+
+
+@media screen and (max-width:680px) {
+  
+    .cart-div{
+        margin-left: 3%;
+    }
+    .input-card {
+        width: 320px;
+      
+    }
+    .input-feild {
+        width: 200px;
+      
+    }
+    .logo{
+        margin-left: 3%;
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media screen and (max-width:500px) {
+
+    .cart-div{
+                 margin-left: 8%;
+             }
+             .icon1{
+ margin-left: 10%;
+}
+.logo{
+    margin-left: 7%;
+  
+}
+}

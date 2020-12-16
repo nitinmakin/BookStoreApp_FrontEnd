@@ -48,7 +48,7 @@ export class AdminPanalComponent implements OnInit {
         console.log(error)
       })
   }
-  
+
   openUpdateDialog(element) {
     let dialogRef = this.dialog.open(UpdateBooksComponent, { data: element });
     dialogRef.afterClosed().subscribe(result => {

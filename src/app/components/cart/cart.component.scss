@@ -1,0 +1,307 @@
+@import"../../../styles.scss";
+  .MatCard{
+    margin-top: 30px;
+     width: 177px;
+     display: flex;
+     flex-direction: column;
+     flex-wrap: wrap;
+    height: 240px;
+     margin-left: 10px;
+     margin-right: 10px;
+    box-shadow: none;
+    border: 0.5px solid rgb(225, 224, 224);
+    margin-right: 10px;
+    margin-left: 12px;  
+  }
+
+  .paginaterAllignment{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .Margin{
+    margin-left: 10%;
+    margin-right: 10%;
+   margin-top: -25px;
+     max-width: 1100px;
+     padding-left: 20px;
+   
+  }
+
+  
+  .imageDiv{
+      width: 100%;
+      height: 45%;
+      background-color: rgb(247, 247, 247);
+  }
+
+  .innerImage{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+margin-left: 54px;
+background-color: white;
+height: 80%;
+width: 65px;
+    
+  }
+// .bookDiscriptionParagraph{
+ 
+// }
+.bookDetailHeader{
+  font-size: medium;
+  font-weight: bold;
+  margin-top: 10px;
+}
+  .innerImage1{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+//margin-left: 54px;
+background-color: white;
+height: 80%;
+width: 65px;
+    
+  }
+
+  .bookName{
+    margin-left: 10px;
+    margin-top: 8px;
+    font-size: large;
+  }
+
+  .authorName{
+    margin-left: 10px;
+    font-size: xx-small;
+    font: outline;
+    color: rgb(197, 197, 197);
+  }
+
+ .price{
+  margin-left: 10px;
+  margin-top: 1px;
+  font: outline;
+}
+
+.buttons{
+  margin-left: 10px;
+  margin-top: 17px;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  margin-right: 10px;
+  
+}
+
+.changeStyle{
+  width: 72px;
+  font-size: xx-small;
+  height: 26px;
+  background-color: #A03037 ;
+  color: white;
+  border: none;
+  outline: none;
+}
+
+.wishListButton{
+ width: 75px;
+  font-size: x-small;
+  height: 24px;
+  margin-left: 10px;
+  background-color: white;
+  border: 1px solid rgb(232, 232, 232);
+  outline: none;
+}
+.cartButton{
+  width: 75px;
+  font-size: xx-small;
+  height: 24px;
+  background-color: #A03037 ;
+  color: white;
+  border: none;
+  outline: none;
+  font-size: xx-small;
+}
+
+
+.cartButton1{
+  width: 100%;
+ 
+  height: 24px;
+  background-color: #5d5bff ;
+  color: white;
+  border: none;
+  outline: none;
+  font-size: xx-small;
+}
+
+.cartBookDiv{
+
+width: 620px;
+height: 180px auto;
+border: 1px solid rgb(221, 221, 221);
+margin-top: 40px;
+padding-bottom: 16px;
+margin-left: 180px;
+}
+
+.cartNum{
+  display: flex;
+  flex-direction: row;
+  padding-left: 55px;
+ 
+}
+
+.fontSize{
+  font-size: large;
+  padding-top: 10px;
+}
+
+.forClass{
+  display: flex;
+  flex-direction: row;
+}
+.bookName1{
+  padding-top: 10px;
+  padding-left: 26px;
+  width: 46%;
+}
+
+.authorName1{
+  font-size: xx-small;
+    font: outline;
+    color: rgb(197, 197, 197);
+}
+.removeFromWishlist{
+  margin-top: 26px;
+  margin-left: 150px;
+  border: none;
+  outline: none;
+  background-color: white;
+}
+.minus{
+  border-radius: 50%;
+  border: none;
+  height: 23px;
+  width: 23px;
+  margin-right: 4px;
+  outline: none;
+  border: 1px solid rgb(228, 227, 227);
+}
+
+.plus{
+  border-radius: 50%;
+  border: none;
+  height: 23px;
+  width: 23px;
+  margin-left: 4px;
+  outline: none;
+  border: 1px solid rgb(228, 227, 227);
+}
+
+.numInput{
+  width: 20px;
+  height: 15px;
+  margin-top: 1.5px;
+  border: 1px solid rgb(228, 227, 227);
+  text-align: center;
+
+}
+
+.customerDetails{
+  
+
+  width: 570px;
+  height: 10px auto;
+  border: 1px solid rgb(221, 221, 221);
+  margin-top: 10px;
+  padding-bottom: 16px;
+  margin-left: 180px;
+  padding-top: 10px;
+  padding-left: 50px;
+
+
+}
+
+
+
+
+.removeButton{
+margin-left: 13px;
+border: none;
+outline: none;
+background-color: white;
+}
+
+.orderButtonDiv{
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+
+}
+
+
+.continueButtonDiv{
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+.continueButton{
+  width: 120px;
+  height: 30px;
+  border: none;
+  outline: none;
+  background-color: #5d5bff;
+  color: white;
+}
+.sortByRevelence{
+  margin-left: 575px;
+}
+.orderButton{
+  background-color: #5d5bff;
+  height: 30px;
+  width: 120px;
+  color: white;
+  border: none;
+  outline: none;
+}
+.nameContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+ width: 80%;
+}
+
+.name{
+width: 48%;
+ 
+
+}
+
+
+.example-full-width {
+  width: 80%;
+}
+
+
+.name1{
+  width: 32%;
+}
+
+
+
+
+.discriptionCart{
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+@media screen and (max-width:500px) {
+  
+  .Margin{
+   padding-left: 50px;
+  }
+ 
+  }

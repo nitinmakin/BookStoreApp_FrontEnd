@@ -1,0 +1,26 @@
+.bookItm{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+  
+  }
+
+.bookNum{
+  padding-top: 9px;
+  padding-left: 3px;
+  color: rgb(197, 191, 191);
+}
+
+.BookNum{
+  margin-left: 54px;
+  padding-left: 114px;
+  font-size: x-large;
+ padding-top: 7px;
+}
+  .bookCount{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1%;
+
+  }
