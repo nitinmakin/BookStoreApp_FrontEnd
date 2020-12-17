@@ -12,13 +12,15 @@
    border: 0.1px solid rgb(225, 224, 224);
     margin-right: 10px;
     margin-left: 12px;  
+   
   }
 
   .paginaterAllignment{
     width: 100%;
     display: flex;
     justify-content: center;
-  }
+   
+    }
 
   .Margin{
     margin-left: 10%;
@@ -28,6 +30,7 @@
      padding-left: 20px;
      display: flex;
      flex-wrap: wrap;
+      z-index: -1;
    
   }
 .outOfStock{
@@ -206,7 +209,8 @@ margin-left: 180px;
  height: auto;
  margin-left: 2px;
 // position: relative;
-
+//z-index: -1;
+z-index: 1;
  //border-radius: 1%;
 }
 .authorName1{
