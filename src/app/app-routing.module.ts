@@ -40,17 +40,18 @@ const routes: Routes = [
     path: "dashboard", component: DashBoardComponent, canActivate: [AuthGuard],
     children: [
       {
+        path: 'cart',
+        component: CartComponent
+      },
+      {
         path: 'books',
         component: BooksComponent
       },
       {
         path: 'wishlist',
         component: WishListComponent
-      },
-      {
-        path: 'cart',
-        component: CartComponent
       }
+    
     ]
   }
 ];

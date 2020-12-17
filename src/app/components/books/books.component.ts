@@ -18,6 +18,7 @@ export class BooksComponent implements OnInit {
 
   constructor(private books: BookService, private dataService: DataService) { }
   bookArray = [];
+  cartBookArray=[];
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   length;
@@ -32,12 +33,29 @@ export class BooksComponent implements OnInit {
      this.dataSource= this.paginator;
       this.length = this.bookArray.length;
       console.log(this.bookArray)
+    //  this.displayCartBooks();
     },
       (error) => {
         console.log(error)
       })
   }
-  
+
+
+  // displayCartBooks() {
+  //   this.books.getCartBooks().subscribe(result => {
+  //     this.cartBookArray = result['data'];
+  //     this.cartBookArray.reverse();
+  //     this.length = this.cartBookArray.length;
+  //     console.log(this.cartBookArray);
+  //     this.dataService.changeMessage(this.length);
+  //     return this.cartBookArray;
+  //   },
+  //     (error) => {
+  //       console.log(error)
+  //     })
+  // }
+
+
   highToLow() {
     this.books.priceHighToLow().subscribe((result: any) => {
       this.bookArray =  result['data'];
@@ -52,7 +70,7 @@ export class BooksComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataService.currentMessage.subscribe(data => { this.displayBooks()});
-  
+   //this.dataService.currentMessage.subscribe(data => this.displayCartBooks())
+  // this.dataService.changeMessage(this.displayCartBooks());
   }
-
 }

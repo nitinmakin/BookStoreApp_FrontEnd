@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { environment } from "../../../environments/environment";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HttpServiceService } from "../httpService/http-service.service";
+//import { Book } from '../../Model/book';
+import { Subject, Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +13,7 @@ export class BookService {
 
   constructor(private httpService: HttpServiceService) { }
   baseUrl = environment.baseUrl;
+  private searchBookData = new Subject<any>();
 
   addBooks(data) {
     let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem('token') }) }
@@ -90,6 +94,16 @@ getWishListBooks(){
   addBookFromWishlistToCart(data) {
     let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem('token') }) }
     return this.httpService.post(`${this.baseUrl}WishList/AddToCartFromWishlist/${data.bookId}`, data, true,options)
+  }
+
+
+  setSearchBookData(message: any) {
+    console.log("set service", message);
+    return this.searchBookData.next({ books: message });
+  }
+  getSearchBookData(): Observable<any> {
+    console.log("get service");
+    return this.searchBookData.asObservable();
   }
 
 }

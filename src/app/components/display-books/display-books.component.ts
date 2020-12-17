@@ -27,7 +27,8 @@ export class DisplayBooksComponent implements OnInit {
   currentPage = 2;
   pageSizes = 5;
   showDiscription: any = [];
-
+  bookSearch: any;
+  
 
   handlePageChange(event): void {
     this.page = event;
@@ -38,7 +39,7 @@ export class DisplayBooksComponent implements OnInit {
     this.page = 1;
   }
 
-
+//@Input() searchText:any
   @Input() bookArray: any;
   @Input() bookArrayLength;
   @Input() displayBook: any;
@@ -49,16 +50,22 @@ export class DisplayBooksComponent implements OnInit {
   orderSummary = true;
   cartCondition: any = [];
 
-
   addBookToCart(data) {
     this.bookService.addBookToCart(data).subscribe((result: any) => {
-     // this.cartConditionMethod(index);
       this.snakeBar.snakeBarMethod("Book added to Cart Successfully");
         this.data.changeMessage({});
     },
       (error) => {
         this.snakeBar.snakeBarMethod(error.error.message)
       })
+  }
+
+
+  getSearchBookData() {
+    this.bookService.getSearchBookData().subscribe((message) => {
+      console.log("search data- ", message.books);
+      this.bookSearch = message.books;
+    })
   }
 
   addBookToWishList(data) {
@@ -99,5 +106,8 @@ export class DisplayBooksComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.data.currentMessage.subscribe(data => { this.getSearchBookData()});
   }
 }
+
+

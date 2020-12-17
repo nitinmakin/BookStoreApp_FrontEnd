@@ -9,7 +9,7 @@
      margin-left: 10px;
      margin-right: 10px;
     box-shadow: none;
-    border: 0.5px solid rgb(225, 224, 224);
+   border: 0.1px solid rgb(225, 224, 224);
     margin-right: 10px;
     margin-left: 12px;  
   }
@@ -26,16 +26,47 @@
    margin-top: -25px;
      max-width: 1100px;
      padding-left: 20px;
+     display: flex;
+     flex-wrap: wrap;
    
   }
+.outOfStock{
+ position: absolute;
+ // margin-bottom: -100px;
+  background-color: white;
+  width: 140px;
+  height: 145x;
+  display: flex;
+  justify-content: center;
+  padding-top: 7px;
+  padding-bottom: 4px;
+  margin-top: 28px;
+  opacity:.96;
+  box-shadow: 0 .5px 1px 0 rgba(255, 255, 255, 0.748), 0 3px 10px 0 #dadada;
+//  filter: blur(0.5px);
+ // background: transparent;
+// grid-area:overflow;
+//border: 1px solid red;
+font-size: small;
 
+}
   
   .imageDiv{
       width: 100%;
       height: 45%;
       background-color: rgb(247, 247, 247);
+     // position: relative;
   }
-
+.wishlistButton1{
+  width: 155px;
+  height: 24px;
+  background-color: white;
+  border: 1px solid rgb(199, 199, 199);
+//  border: none;
+  outline: none;
+  font-size: x-small;
+  box-shadow: 0 .5px .1px 0 rgba(255, 255, 255, 0.748), 0 .3px 3px 0 #dadada;
+}
   .innerImage{
     display: flex;
     justify-content: center;
@@ -126,7 +157,7 @@ width: 65px;
 
 
 .cartButton1{
-  width: 100%;
+  width: 155px;
  
   height: 24px;
   background-color: #5d5bff ;
@@ -167,7 +198,17 @@ margin-left: 180px;
   padding-left: 26px;
   width: 46%;
 }
+.matCartDiv2{
+ width: 250px;
+ //width: auto;
+ display: flex;
+ flex-wrap: wrap;
+ height: auto;
+ margin-left: 2px;
+// position: relative;
 
+ //border-radius: 1%;
+}
 .authorName1{
   font-size: xx-small;
     font: outline;
@@ -307,9 +348,17 @@ width: 48%;
 .discriptionCart{
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
+//  position: absolute;
+  //width: 210px;
+//  border: 2px solid rgb(238, 237, 237);
+ // padding: 5%;
 
 }
-
+.bookDisp{
+  color: rgb(172, 169, 169);
+  font-size: xx-small;
+}
 @media screen and (max-width:500px) {
   
   .Margin{
@@ -317,3 +366,8 @@ width: 48%;
   }
  
   }
+
+  @media screen and (max-width:700px) {
+  .matCartDiv2{
+width: auto;
+  }}

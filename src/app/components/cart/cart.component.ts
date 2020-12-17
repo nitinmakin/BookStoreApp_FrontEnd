@@ -3,6 +3,7 @@ import { BookService } from "../../service/bookService/book.service";
 import { DataService } from "../../service/dataService/data.service";
 import { UtilityService } from "../../service/utilityService/utility.service";
 import { Router } from '@angular/router';
+import { take } from 'rxjs/operators';
 
 
 
@@ -25,25 +26,32 @@ export class CartComponent implements OnInit {
   state = localStorage.getItem('state')
   pin = localStorage.getItem('pin')
   phone = localStorage.getItem('phone')
- // displayCart = true;
+
 
   constructor(private bookService: BookService, private dataService: DataService, private snakeBar:UtilityService,
     private route: Router) { }
 
-  displayBooks() {
+ displayCartBooks() {
     this.bookService.getCartBooks().subscribe(result => {
       this.cartBookArray = result['data'];
       this.cartBookArray.reverse();
-    //  this.displayCart = true;
       this.length = this.cartBookArray.length;
       console.log("length is "+this.length);
-      console.log(result);
+      console.log(this.cartBookArray);
       
- // this.dataService.changeMessage(this.length);
+ //this.dataService.changeMessage(this.length);
     },
       (error) => {
         console.log(error)
       })
+  }
+
+  resolveAfter2Seconds(x) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(x);
+      }, 200);
+    });
   }
 
   placeOrder() {
@@ -88,10 +96,17 @@ export class CartComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-  this.dataService.currentMessage.subscribe(data => { this.displayBooks()
- });
 
+  
+
+  async ngOnInit(){
+  this.dataService.currentMessage.subscribe(data => {this.displayCartBooks()});
+  await this.resolveAfter2Seconds(1);
+  this.dataService.changeMessage(this.length);
+
+//  this.dataService.currentMessage.subscribe(message => {
+//   console.log("receved message  " + message);
+//   this.cartBookArray = message; 
+// })
   }
- 
 }

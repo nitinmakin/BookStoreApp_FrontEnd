@@ -36,6 +36,8 @@ import { CartComponent } from './components/cart/cart.component';
 import { WishListComponent } from './components/wish-list/wish-list.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SearchBookPipe } from './pipe/search-book.pipe';
+
 
 
 @NgModule({
@@ -55,6 +57,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     BooksComponent,
     CartComponent,
     WishListComponent,
+    SearchBookPipe,
   ],
   imports: [
     BrowserModule,

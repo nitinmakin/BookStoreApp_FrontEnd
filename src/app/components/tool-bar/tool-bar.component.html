@@ -6,14 +6,15 @@
     <div *ngIf="dispalySearchBar" fxHide.xs class="input-card">
         <mat-icon class="icon1">search</mat-icon>
         <div class="input-feild">
-            <input type="search" style="font-size: medium;" placeholder="search..">
+            <input type="search" [(ngModel)]="bookName" (input)="bookSearch()" style="font-size: medium;" placeholder="search..">
         </div>
     </div>
-
     <div *ngIf="dispalyimg" class="cart-div">
         <div style="display: flex; flex-direction: row;">
             <button (click)="navigateCart()" class="cartButton">
-                <mat-icon matBadge="{{length}}"><img class="cart-logo" src="../../../assets/Images/supermarket.svg">
+                <mat-icon matBadge="{{length}}" [matBadgeHidden]="length == 0" matBadgeColor="disable"
+                    matBadgeDisabled=true>
+                    <img src="../../../assets/Images/supermarket.svg">
                 </mat-icon>
             </button>
         </div>

@@ -1,13 +1,16 @@
 <div style="min-height: 71.3%; width: 100%;">
-    <div fxLayout="row wrap" fxLayoutAlign="start start" class="Margin" (change)="handlePageSizeChange($event)">
-        <div class="MatCard removePadding" *ngFor="let book of bookArray | paginate: { 
+    <div fxLayout="row wrap"  fxLayoutAlign="start start" class="Margin"
+        (change)="handlePageSizeChange($event)">
+        <div class="MatCard removePadding" *ngFor="let book of bookArray  | searchBook: bookSearch | paginate: { 
     itemsPerPage: pageSizes,
     currentPage: page,
     totalItems: count };let i = index" (mouseover)="showDiscription[i]=true" (mouseout)="showDiscription[i]=false">
+
             <div class="imageDiv" fxLayout="wrap">
                 <div class="innerImage">
                     <img src="{{book.image}}" alt="" style="width: 100%; height: 100%;">
-                </div>
+                    <p *ngIf="book.quantity==0" class="outOfStock">OUT OF STOCK</p>
+                </div>   
             </div>
 
             <div class="bookName">
@@ -22,27 +25,31 @@
                 Rs. {{book.price}}
             </div>
             <div class="buttons">
-                <button type="submit" class="cartButton" *ngIf="!book.cartConditionButton && !displayWishList" id=book.id
-                    (click)="addBookToCart(book)">ADD TO CART</button>
+                <button type="submit" class="cartButton" *ngIf="!book.cartConditionButton && !displayWishList && book.quantity!=0" 
+                    id=book.id (click)="addBookToCart(book)">ADD TO CART</button>
 
-                <button type="submit" class="cartButton" *ngIf="displayWishList && displayWishList" id=book.id
+                <button type="submit" class="cartButton" *ngIf="displayWishList && displayWishList && book.quantity!=0"id=book.id
                     (click)="addToCartFromWishlist(book)">ADD TO CART</button>
 
                 <button type="submit" class="cartButton1" *ngIf="book.cartConditionButton">ADDED TO CART</button>
+                <button type="submit" class="wishlistButton1" (click)="addBookToWishList(book)" *ngIf="book.quantity==0">
+                    WISHLIST
+                </button>
 
                 <button type="submit" (click)="addBookToWishList(book)" class="wishListButton"
-
-
-                    *ngIf="!book.cartConditionButton && !displayWishList">WISHLIST</button>
-
-
+                    *ngIf="!book.cartConditionButton && !displayWishList && book.quantity!=0">WISHLIST</button>
                 <button type="submit" class="wishListButton" *ngIf="displayWishList"
                     (click)="removeBookFromWishList(book)">REMOVE</button>
             </div>
-            <mat-card class="discriptionCart" *ngIf="showDiscription[i]">
-                <p class="bookDetailHeader">Book Details</p>
-                {{book.discription}}
-            </mat-card>
+
+
+            <div class="matCartDiv2">
+                <mat-card class="discriptionCart" *ngIf="showDiscription[i] && !displayWishList">
+                    <p class="bookDetailHeader">Book Details</p>
+                   <p class="bookDisp">{{book.discription}}</p> 
+                </mat-card>
+            </div>
+
         </div>
     </div>
 
@@ -50,3 +57,4 @@
         <pagination-controls (pageChange)="handlePageChange($event)" previousLabel="Prev" nextLabel="Next"
             responsive="true"></pagination-controls>
     </div>
+</div>
