@@ -1,15 +1,11 @@
-<!-- <app-display-books [bookArray]="cartBookArray" [bookArrayLength]="length" [displayCart]="displayCart"></app-display-books> -->
-<div style="min-height: 69.6%; width: 100%;">
+
+<div class="mainDivCart">
 
 <div class="cartBookDiv" >
     <div class="cartNum">
         <h5 class="fontSize">My Cart</h5>
         <h5 class="fontSize">({{length}})</h5>
     </div>
-    <!-- <div class="cartNum" *ngIf="displayWishList">
-        <h5 class="fontSize">My WishList</h5>
-        <h5 class="fontSize">({{length1}})</h5>
-    </div> -->
     <div *ngFor="let book of cartBookArray" class="forClass">
         <div class="innerImage">
             <img src="{{book.image}}" alt="" style="width: 100%; height: 100%;">
@@ -31,13 +27,7 @@
             </div>
 
         </div>
-        <!-- <div *ngIf="displayWishList">
-
-            <button type="submit" class="removeFromWishlist" (click)="removeBookFromWishList(book)"><span
-                    class="material-icons">
-                    delete_outline
-                </span></button>
-        </div> -->
+    
     </div>
 
     <div class="orderButtonDiv">
@@ -89,7 +79,7 @@
         </div>
     </div>
     <div class="customerDetails" *ngIf="orderSummary">
-        Order Summery
+        Order Summary
     </div>
     <div class="customerDetails" *ngIf="!orderSummary">
         <div *ngFor="let book of cartBookArray" class="forClass">
@@ -106,7 +96,6 @@
                 </div>
             </div>
         </div>
-
         <div class="continueButtonDiv">
             <button class="continueButton" (click)="placeOrder()">Check Out</button>
         </div>

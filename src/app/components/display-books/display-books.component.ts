@@ -5,7 +5,7 @@ import { UtilityService } from "../../service/utilityService/utility.service";
 import { Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
-
+//import { DataService } from "../../service/dataService/data.service";
 @Component({
   selector: 'app-display-books',
   templateUrl: './display-books.component.html',
@@ -16,7 +16,6 @@ export class DisplayBooksComponent implements OnInit {
   constructor(private bookService: BookService, private data: DataService, private snakeBar: UtilityService,
     private route: Router, private dialog: MatDialog) { }
 
-
   tutorials: any;
   currentTutorial = null;
   currentIndex = -1;
@@ -25,10 +24,10 @@ export class DisplayBooksComponent implements OnInit {
   count = 0;
   pageSize = 3;
   currentPage = 2;
-  pageSizes = 5;
+  pageSizes = 10;
   showDiscription: any = [];
   bookSearch: any;
-  
+  length: any;
 
   handlePageChange(event): void {
     this.page = event;
@@ -39,7 +38,7 @@ export class DisplayBooksComponent implements OnInit {
     this.page = 1;
   }
 
-//@Input() searchText:any
+  //@Input() searchText:any
   @Input() bookArray: any;
   @Input() bookArrayLength;
   @Input() displayBook: any;
@@ -49,17 +48,18 @@ export class DisplayBooksComponent implements OnInit {
   reset = true;
   orderSummary = true;
   cartCondition: any = [];
+  cartBookArray: any = [];
 
   addBookToCart(data) {
-    this.bookService.addBookToCart(data).subscribe((result: any) => {
+    this.bookService.addBookToCart(data.id).subscribe((result: any) => {
       this.snakeBar.snakeBarMethod("Book added to Cart Successfully");
-        this.data.changeMessage({});
+      data.cartConditionButton=true;
+      this.data.changeCartLength({ data1: data });
     },
       (error) => {
         this.snakeBar.snakeBarMethod(error.error.message)
       })
   }
-
 
   getSearchBookData() {
     this.bookService.getSearchBookData().subscribe((message) => {
@@ -86,27 +86,33 @@ export class DisplayBooksComponent implements OnInit {
         this.snakeBar.snakeBarMethod(error.error.message);
       })
   }
-
   addToCartFromWishlist(data) {
-    this.bookService.addBookFromWishlistToCart(data).subscribe((result: any) => {
+    this.bookService.addBookFromWishlistToCart(data.bookId).subscribe((result: any) => {
       this.snakeBar.snakeBarMethod("Book Added to cart");
+      data.cartConditionButton=true;
       this.data.changeMessage({});
+      this.data.changeCartLength({});
     },
       (error) => {
         this.snakeBar.snakeBarMethod(error.error.message);
       }
     )
   }
-  cartConditionMethod(index) {
-    this.cartCondition[index] = true;
-  }
+ 
 
   orderSummaryFalse() {
     this.orderSummary = false;
   }
+  // resolveAfter2Seconds(x) {
+  //   return new Promise(resolve => {
+  //     setTimeout(() => {
+  //       resolve(x);
+  //     }, 200);
+  //   });
+  // }
 
-  ngOnInit(): void {
-    this.data.currentMessage.subscribe(data => { this.getSearchBookData()});
+  ngOnInit() {
+    this.data.currentMessage.subscribe(data => { this.getSearchBookData() });
   }
 }
 

@@ -12,8 +12,9 @@
     <div *ngIf="dispalyimg" class="cart-div">
         <div style="display: flex; flex-direction: row;">
             <button (click)="navigateCart()" class="cartButton">
-                <mat-icon matBadge="{{length}}" [matBadgeHidden]="length == 0" matBadgeColor="disable"
-                    matBadgeDisabled=true>
+                <mat-icon matBadge="{{length}}" [matBadgeHidden]="length == 0" matBadgeColor="warn">
+
+                
                     <img src="../../../assets/Images/supermarket.svg">
                 </mat-icon>
             </button>
@@ -26,7 +27,11 @@
     <mat-menu class="abc123" #beforeMenu="matMenu" xPosition="before">
         <img src="../../../assets/Images/unnamed.png" alt="Avatar " class="innerPosition a"><br><br>
         <p style="margin-left: 35%;">{{name}}</p>
-        <p style="margin-left: 16%;">{{email}}</p><br>
-        <input type="submit" value="Sign out" class="logoutButton" (click)="logout()">
+        <p style="margin-left: 16%;">{{email}}</p>
+
+        <div style="display: flex; justify-content: center; flex-direction: row;">
+        <input type="submit" value="WishList" class="wishListButton" (click)="navigateWishList()">
+        <input type="submit" value="Sign out" class="wishListButton" (click)="logout()">
+    </div>
     </mat-menu>
 </mat-toolbar>

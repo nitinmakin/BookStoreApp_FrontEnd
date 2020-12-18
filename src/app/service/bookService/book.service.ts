@@ -22,7 +22,7 @@ export class BookService {
 
   addBookToCart(data) {
     let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem('token') }) }
-    return this.httpService.post(`${this.baseUrl}Cart/${data.id}`, data, true,options)
+    return this.httpService.post(`${this.baseUrl}Cart/${data}`, data, true,options)
   }
 
   addBookToWishList(data) {
@@ -93,7 +93,7 @@ getWishListBooks(){
 
   addBookFromWishlistToCart(data) {
     let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem('token') }) }
-    return this.httpService.post(`${this.baseUrl}WishList/AddToCartFromWishlist/${data.bookId}`, data, true,options)
+    return this.httpService.post(`${this.baseUrl}WishList/AddToCartFromWishlist/${data}`, data, true,options)
   }
 
 

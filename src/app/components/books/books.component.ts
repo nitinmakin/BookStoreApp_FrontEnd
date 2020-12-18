@@ -64,13 +64,15 @@ export class BooksComponent implements OnInit {
 
   lowToHigh() {
     this.books.priceLowToHigh().subscribe((result: any) => {
-      this.bookArray = result['data'];     
+      this.bookArray = result['data'];   
+        
     })
   }
 
   ngOnInit(): void {
-    this.dataService.currentMessage.subscribe(data => { this.displayBooks()});
+   // this.dataService.currentMessage.subscribe(data => { this.displayBooks()});
    //this.dataService.currentMessage.subscribe(data => this.displayCartBooks())
-  // this.dataService.changeMessage(this.displayCartBooks());
+ // this.dataService.changeMessage(this.displayCartBooks());
+ this.displayBooks();
   }
 }

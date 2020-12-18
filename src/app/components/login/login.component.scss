@@ -14,11 +14,15 @@
     font-size: xx-large;
     margin-top: 10px;  
 }
-
+.loginHeader{
+    font-size: x-large;
+   font-weight: bold;
+    color: #A03037;
+}
 .mainContainer{
     
-        margin-top: 80px;
-        height: 55%;
+        margin-top: 60px;
+        height: 60%;
         width: 23%;
         border: 1px solid rgb(240, 240, 240);
         display: flex;

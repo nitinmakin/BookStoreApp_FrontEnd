@@ -39,10 +39,21 @@ font-size: small;
 
   @media screen and (max-width:1282px) {
     .sortByRevelence{
-        margin-left: 400px;
+        margin-left: 200px;
      }   
     }
-  
+    @media screen and (max-width:1150px) {
+      .sortByRevelence{
+        margin-left: 320px;
+     }   
+    }
+    @media screen and (max-width:1030px) {
+      .sortByRevelence{
+        margin-left: 0px;
+     }   
+    }
+
+
   @media screen and (max-width:985px) {
     .sortByRevelence{      
         margin-left: 0%;
@@ -52,9 +63,21 @@ font-size: small;
 
     @media screen and (max-width:550px) {
         .BookNum{
-            margin-left: 14px;
+            margin-left: -20px;
             padding-left: 40px;
             font-size: x-large;
-           padding-top: 7px;
+           padding-top: 15px;
           }
+          .sortByRevelence{      
+            margin-left: 15%;
+            margin-top: 10px;
+        }
+        .bookNum{
+          padding-top: 17px;
+          padding-left: 3px;
+          color: rgb(197, 191, 191);
+        }
+        .mainBookContainer{
+          margin-top: 10px;
+        }
     }

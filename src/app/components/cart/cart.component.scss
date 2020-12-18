@@ -289,19 +289,42 @@ width: 48%;
   width: 32%;
 }
 
-
-
-
 .discriptionCart{
   display: flex;
   flex-wrap: wrap;
 
 }
-
+.mainDivCart{
+  min-height: 69.6%;
+  width: 100%;
+}
 @media screen and (max-width:500px) {
   
-  .Margin{
-   padding-left: 50px;
+
+  .cartBookDiv{
+    width: 300px;
+    margin-left: 0%;
+    border: none;
+    margin-top: 1%
   }
- 
+  .customerDetails{
+    width: 300px;
+    margin-left: 0%;
+    border: none;
+  }
+  .orderButton{
+    margin-top: 5px;
+    margin-right: -58px;
+    width: 100px;
+
+  }
+  .orderButtonDiv{
+    margin-right: 0%;
+    margin-left: 30px;
+    margin-top: 10px;
+  }
+ .mainDivCart{
+  min-height: 82.7%;
+  width: 100%;
+ }
   }

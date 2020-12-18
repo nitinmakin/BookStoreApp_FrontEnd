@@ -1,6 +1,5 @@
 <div style="min-height: 71.3%; width: 100%;">
-    <div fxLayout="row wrap"  fxLayoutAlign="start start" class="Margin"
-        (change)="handlePageSizeChange($event)">
+    <div fxLayout="row wrap" fxLayoutAlign="start start" class="Margin" (change)="handlePageSizeChange($event)">
         <div class="MatCard removePadding" *ngFor="let book of bookArray  | searchBook: bookSearch | paginate: { 
     itemsPerPage: pageSizes,
     currentPage: page,
@@ -10,7 +9,7 @@
                 <div class="innerImage">
                     <img src="{{book.image}}" alt="" style="width: 100%; height: 100%;">
                     <p *ngIf="book.quantity==0" class="outOfStock">OUT OF STOCK</p>
-                </div>   
+                </div>
             </div>
 
             <div class="bookName">
@@ -25,31 +24,36 @@
                 Rs. {{book.price}}
             </div>
             <div class="buttons">
-                <button type="submit" class="cartButton" *ngIf="!book.cartConditionButton && !displayWishList && book.quantity!=0" 
-                    id=book.id (click)="addBookToCart(book)">ADD TO CART</button>
+                <button type="submit" class="cartButton"
+                    *ngIf="!book.cartConditionButton && !displayWishList && book.quantity!=0" id=book.id
+                    (click)="addBookToCart(book)">ADD TO CART</button>
 
-                <button type="submit" class="cartButton" *ngIf="displayWishList && displayWishList && book.quantity!=0"id=book.id
-                    (click)="addToCartFromWishlist(book)">ADD TO CART</button>
+                <button type="submit" class="cartButton" *ngIf="displayWishList && displayWishList && book.quantity!=0"
+                    id=book.id (click)="addToCartFromWishlist(book)">ADD TO CART</button>
 
                 <button type="submit" class="cartButton1" *ngIf="book.cartConditionButton">ADDED TO CART</button>
-                <button type="submit" class="wishlistButton1" (click)="addBookToWishList(book)" *ngIf="book.quantity==0">
+                <button type="submit" class="wishlistButton1" (click)="addBookToWishList(book)"
+                    *ngIf="book.quantity==0 && !displayWishList">
                     WISHLIST
                 </button>
 
+                <button type="submit" class="wishlistButton1" (click)="removeBookFromWishList(book)"
+                *ngIf="book.quantity==0 && displayWishList">
+                REMOVE
+            </button>
+
                 <button type="submit" (click)="addBookToWishList(book)" class="wishListButton"
                     *ngIf="!book.cartConditionButton && !displayWishList && book.quantity!=0">WISHLIST</button>
-                <button type="submit" class="wishListButton" *ngIf="displayWishList"
+                <button type="submit" class="wishListButton" *ngIf="displayWishList && book.quantity!=0"
                     (click)="removeBookFromWishList(book)">REMOVE</button>
             </div>
-
 
             <div class="matCartDiv2">
                 <mat-card class="discriptionCart" *ngIf="showDiscription[i] && !displayWishList">
                     <p class="bookDetailHeader">Book Details</p>
-                   <p class="bookDisp">{{book.discription}}</p> 
+                    <p class="bookDisp">{{book.discription}}</p>
                 </mat-card>
             </div>
-
         </div>
     </div>
 

@@ -6,8 +6,6 @@ import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
 
 
-
-
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -38,8 +36,6 @@ export class CartComponent implements OnInit {
       this.length = this.cartBookArray.length;
       console.log("length is "+this.length);
       console.log(this.cartBookArray);
-      
- //this.dataService.changeMessage(this.length);
     },
       (error) => {
         console.log(error)
@@ -57,8 +53,9 @@ export class CartComponent implements OnInit {
   placeOrder() {
     this.bookService.placedOrder().subscribe((result: any) => {
       this.snakeBar.snakeBarMethod("Order Placed Successfully");
-      this.route.navigate(['dashboard/books'])
-      this.dataService.changeMessage({});
+      this.route.navigate(['dashboard/success'])
+     // this.dataService.changeMessage({});
+     this.dataService.decreaseCartLength({});
     },
       (error) => {
         this.snakeBar.snakeBarMethod(error.error.message);
@@ -74,9 +71,18 @@ export class CartComponent implements OnInit {
   }
 
   removeBookFromCart(data) {
-    this.bookService.removeBookFromCart(data).subscribe((result: any) => {
+    this.dataService.decreaseCartLength({data2:data});
+    this.bookService.removeBookFromCart(data).subscribe( async (result: any) => {
       this.snakeBar.snakeBarMethod("Book removed from Cart")
-      this.dataService.changeMessage({});
+     
+  //   this.length--;
+  this.displayCartBooks()
+
+    
+     await this.resolveAfter2Seconds(1);
+     this.dataService.changeMessage({});
+      
+     
     },
       (error) => {
         this.snakeBar.snakeBarMethod(error.error.message)
@@ -86,27 +92,22 @@ export class CartComponent implements OnInit {
 
   increaseQuantity(data) {
     this.bookService.increaseQuantity(data).subscribe((result: any) => {
-      this.dataService.changeMessage({});
+   //  this.dataService.changeMessage({});
+     this.displayCartBooks()
     });
   }
 
   decreaseQuantity(data) {
     this.bookService.decreaseQuantity(data).subscribe((result: any) => {
-      this.dataService.changeMessage({});
+     this.displayCartBooks()
+     // this.dataService.changeMessage({});
     });
   }
 
-
-  
-
-  async ngOnInit(){
+  ngOnInit(){
   this.dataService.currentMessage.subscribe(data => {this.displayCartBooks()});
-  await this.resolveAfter2Seconds(1);
+  this.displayCartBooks();
+  // await this.resolveAfter2Seconds(1);
   this.dataService.changeMessage(this.length);
-
-//  this.dataService.currentMessage.subscribe(message => {
-//   console.log("receved message  " + message);
-//   this.cartBookArray = message; 
-// })
   }
 }

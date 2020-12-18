@@ -13,20 +13,28 @@ import { BookService } from "../../service/bookService/book.service";
 })
 export class ToolBarComponent implements OnInit {
   constructor(private route: Router, private snackBar: UtilityService, private dataService: DataService,
-    private bookService:BookService) { }
+    private bookService: BookService) { }
   books: Book[];
   filteredBooks: Book[];
   bookName: string;
- @Input() searchTerm:any;
+  @Input() searchTerm: any;
+  cartArray: any = [];
 
 
-
- bookSearch() {
-  console.log(this.bookName);
-  this.bookService.setSearchBookData(this.bookName);
-}
+  bookSearch() {
+    console.log(this.bookName);
+    this.bookService.setSearchBookData(this.bookName);
+  }
 
   ngOnInit(): void {
+    this.dataService.currentMessage1.subscribe(message => {
+      console.log("receved message  ==>", message);
+      this.length++;
+    })
+    this.dataService.currentMessage2.subscribe(message=>{
+    this.length--;
+    })
+
     if (this.childMessage == "Admin") {
       this.dispalyimg = false;
       this.dispalySearchBar = false;
@@ -39,10 +47,19 @@ export class ToolBarComponent implements OnInit {
       this.message = "User DashBoard"
     }
 
-    this.dataService.currentMessage.subscribe(message => {
-      console.log("receved message  " + message);
-      this.length = message;
-    })
+    this.displayCartBooks();
+  }
+  displayCartBooks() {
+    this.bookService.getCartBooks().subscribe(result => {
+      this.cartArray = result['data'];
+      this.cartArray.reverse();
+      this.length = this.cartArray.length;
+      console.log("length is " + this.length);
+      console.log(this.cartArray);
+    },
+      (error) => {
+        console.log(error)
+      })
   }
 
   @Input() childMessage: string;
@@ -68,7 +85,9 @@ export class ToolBarComponent implements OnInit {
     this.route.navigate(['login'])
     this.snackBar.snakeBarMethod("logout successfully.")
   }
-
+  navigateWishList() {
+    this.route.navigate(['dashboard/wishlist']);
+  }
   navigateCart() {
     this.route.navigate(['dashboard/cart'])
   }

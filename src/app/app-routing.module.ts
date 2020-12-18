@@ -12,6 +12,7 @@ import { BooksComponent } from "./components/books/books.component";
 import { CartComponent } from "./components/cart/cart.component";
 import { WishListComponent } from "./components/wish-list/wish-list.component";
 import { DisplayBooksComponent } from "./components/display-books/display-books.component";
+import { SuccessOrderComponent } from "./components/success-order/success-order.component";
 
 const routes: Routes = [
   {
@@ -50,8 +51,11 @@ const routes: Routes = [
       {
         path: 'wishlist',
         component: WishListComponent
+      },
+      {
+        path: 'success',
+        component: SuccessOrderComponent
       }
-    
     ]
   }
 ];

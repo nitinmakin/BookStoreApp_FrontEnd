@@ -208,10 +208,11 @@ margin-left: 180px;
  flex-wrap: wrap;
  height: auto;
  margin-left: 2px;
-// position: relative;
-//z-index: -1;
 z-index: 1;
- //border-radius: 1%;
+
+}
+::ng-deep.ngx-pagination .current {
+  background-color:  #A03037 !important ; 
 }
 .authorName1{
   font-size: xx-small;
