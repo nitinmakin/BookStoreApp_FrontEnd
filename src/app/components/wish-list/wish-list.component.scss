@@ -24,3 +24,10 @@
     margin-top: 1%;
 
   }
+
+  @media screen and (max-width:500px) {
+    .BookNum{
+      padding-left: 0px;
+      margin-left: 14px;
+    }
+  }

@@ -45,8 +45,6 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('phone',result.data.phone);
         localStorage.setItem('pin',result.data.pin);
    
-   
-   
         console.log(result)
 
         if(localStorage.getItem('role') == 'Admin')

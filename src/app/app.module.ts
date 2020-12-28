@@ -38,8 +38,9 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SearchBookPipe } from './pipe/search-book.pipe';
 import { SuccessOrderComponent } from './components/success-order/success-order.component';
-
-
+// import { MatSnackBar } from '@angular/material/snack-bar';
+// import { UserService } from "./service/userService/user.service";
+// import { UtilityService  } from "./service/utilityService/utility.service";
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { SuccessOrderComponent } from './components/success-order/success-order.
     WishListComponent,
     SearchBookPipe,
     SuccessOrderComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -84,7 +86,10 @@ import { SuccessOrderComponent } from './components/success-order/success-order.
     MatPaginatorModule,
     MatCardModule,
     MatBadgeModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    
+    
+
   ],
   providers: [],
   bootstrap: [AppComponent]
