@@ -1,11 +1,12 @@
-<div class="MainBookCon">
+<div [class.MainBookCon]="!reviews">
     <div fxLayout="row wrap" fxLayoutAlign="start start" class="Margin" (change)="handlePageSizeChange($event)">
         <div class="MatCard removePadding" *ngFor="let book of bookArray  | searchBook: bookSearch | paginate: { 
     itemsPerPage: pageSizes,
     currentPage: page,
-    totalItems: count };let i = index" (mouseover)="showDiscription[i]=true" (mouseout)="showDiscription[i]=false">
+    totalItems: count };
+    let i = index" (mouseover)="showDiscription[i]=true" (mouseout)="showDiscription[i]=false">
 
-            <div class="imageDiv" fxLayout="wrap">
+            <div class="imageDiv" fxLayout="wrap" (click)="navigateReviews(book)">
                 <div class="innerImage">
                     <img src="{{book.image}}" alt="" style="width: 100%; height: 100%;">
                     <p *ngIf="book.quantity==0" class="outOfStock">OUT OF STOCK</p>
@@ -57,7 +58,7 @@
         </div>
     </div>
 
-    <div *ngIf="displayBook" class="paginaterAllignment">
+    <div *ngIf="displayBook && !reviews" class="paginaterAllignment">
         <pagination-controls (pageChange)="handlePageChange($event)" previousLabel="Prev" nextLabel="Next"
             responsive="true"></pagination-controls>
     </div>

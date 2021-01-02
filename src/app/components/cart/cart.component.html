@@ -4,7 +4,8 @@
 <div class="cartBookDiv" >
     <div class="cartNum">
         <h5 class="fontSize">My Cart</h5>
-        <h5 class="fontSize">({{length}})</h5>
+        <h5 class="fontSize" *ngIf="length>0">({{length}})</h5>
+        <img src="../../../assets/Images/sad.png" *ngIf="length==0" class="sadImage" alt="">
     </div>
     <div *ngFor="let book of cartBookArray" class="forClass">
         <div class="innerImage">

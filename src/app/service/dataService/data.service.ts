@@ -19,7 +19,7 @@ export class DataService {
 
   private messageSource1 = new BehaviorSubject<any>([{}]);
   currentMessage1 = this.messageSource1.asObservable();
-  
+
   changeCartLength(message: any) {
     this.messageSource1.next(message)
   }
@@ -29,4 +29,13 @@ export class DataService {
   decreaseCartLength(message: any) {
     this.messageSource2.next(message)
   }
+
+  private messageSource3 = new BehaviorSubject<any>([{}]);
+  receivedReview = this.messageSource3.asObservable();
+
+  sendReviewObject(message: any) {
+    this.messageSource3.next(message)
+  }
+
+
 }

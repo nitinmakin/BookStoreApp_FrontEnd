@@ -1,8 +1,8 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { BookService } from "../../service/bookService/book.service";
 import { DataService } from "../../service/dataService/data.service";
 import { UtilityService } from "../../service/utilityService/utility.service";
-import { Router } from '@angular/router';
+import { Router,NavigationExtras} from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 //import { DataService } from "../../service/dataService/data.service";
@@ -15,7 +15,6 @@ export class DisplayBooksComponent implements OnInit {
 
   constructor(private bookService: BookService, private data: DataService, private snakeBar: UtilityService,
     private route: Router, private dialog: MatDialog) { }
-
   tutorials: any;
   currentTutorial = null;
   currentIndex = -1;
@@ -44,16 +43,21 @@ export class DisplayBooksComponent implements OnInit {
   @Input() displayBook: any;
   @Input() displayCart: any;
   @Input() displayWishList: any;
+  @Input() reviews: boolean;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   reset = true;
   orderSummary = true;
   cartCondition: any = [];
   cartBookArray: any = [];
+  reviewBookArray: any = [];
+ 
+  @Output() messageEvent1 = new EventEmitter<any>();
+
 
   addBookToCart(data) {
     this.bookService.addBookToCart(data.id).subscribe((result: any) => {
       this.snakeBar.snakeBarMethod("Book added to Cart Successfully");
-      data.cartConditionButton=true;
+      data.cartConditionButton = true;
       this.data.changeCartLength({ data1: data });
     },
       (error) => {
@@ -89,7 +93,7 @@ export class DisplayBooksComponent implements OnInit {
   addToCartFromWishlist(data) {
     this.bookService.addBookFromWishlistToCart(data.bookId).subscribe((result: any) => {
       this.snakeBar.snakeBarMethod("Book Added to cart");
-      data.cartConditionButton=true;
+      data.cartConditionButton = true;
       this.data.changeMessage({});
       this.data.changeCartLength({});
     },
@@ -98,21 +102,26 @@ export class DisplayBooksComponent implements OnInit {
       }
     )
   }
- 
-
-  orderSummaryFalse() {
-    this.orderSummary = false;
-  }
   // resolveAfter2Seconds(x) {
   //   return new Promise(resolve => {
   //     setTimeout(() => {
   //       resolve(x);
-  //     }, 200);
+  //     }, 300);
   //   });
   // }
+  orderSummaryFalse() {
+    this.orderSummary = false;
+  }
+
+
+
+  navigateReviews(data) {
+      this.route.navigate(['dashboard/reviews/'+ data.id]);
+  }
 
   ngOnInit() {
     this.data.currentMessage.subscribe(data => { this.getSearchBookData() });
+
   }
 }
 

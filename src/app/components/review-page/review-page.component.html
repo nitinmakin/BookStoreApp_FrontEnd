@@ -1,0 +1,25 @@
+<div style="margin-top: 20px;"></div>
+
+<app-display-books [bookArray]="bookArray" [displayBook]="displayBook" [reviews]="reviews"></app-display-books>
+<div class="main-review-container">
+    <h1 class="customer-reviews">Top reviews from India</h1>
+
+    <div *ngFor="let review of reviewArray">
+        <div class="book-review">
+            <div style="display: flex; flex-direction: row;">
+            <img src="../../../assets/Images/profileicon.jpg" class="prfImage" alt="">
+            <h3 class="user-name">{{review.userName}}</h3>
+        </div>
+            <h3 class="review">{{review.review}}</h3>
+        </div>
+    </div>
+    <div class="comment-button-div">
+        <form [formGroup]="form">
+    <mat-form-field class="example-full-width comment">
+        <mat-label>Leave your review</mat-label>
+        <textarea formControlName="review"  matInput placeholder="Ex. It makes me feel..."></textarea>
+    </mat-form-field>
+    <button class="post-button" (click)="addBookReview()">Post</button>
+</form>
+</div>
+</div>

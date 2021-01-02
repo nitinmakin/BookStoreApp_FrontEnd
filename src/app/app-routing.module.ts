@@ -13,6 +13,7 @@ import { CartComponent } from "./components/cart/cart.component";
 import { WishListComponent } from "./components/wish-list/wish-list.component";
 import { DisplayBooksComponent } from "./components/display-books/display-books.component";
 import { SuccessOrderComponent } from "./components/success-order/success-order.component";
+import { ReviewPageComponent } from "./components/review-page/review-page.component";
 
 const routes: Routes = [
   {
@@ -55,6 +56,10 @@ const routes: Routes = [
       {
         path: 'success',
         component: SuccessOrderComponent
+      },
+      {
+        path: 'reviews/:id',
+        component: ReviewPageComponent
       }
     ]
   }

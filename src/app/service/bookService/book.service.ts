@@ -35,6 +35,11 @@ export class BookService {
     return this.httpService.get(`${this.baseUrl}Books/Display`,true,options)
   }
 
+  getBooksById(data){
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem('token') }) }
+    return this.httpService.get(`${this.baseUrl}Books/DisplayBookById/${data}`,true,options)
+  }
+
 getCartBooks(){
   let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem('token') }) }
   return this.httpService.get(`${this.baseUrl}Cart/Display`,true,options)
@@ -95,8 +100,6 @@ getWishListBooks(){
     let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem('token') }) }
     return this.httpService.post(`${this.baseUrl}WishList/AddToCartFromWishlist/${data}`, data, true,options)
   }
-
-
   setSearchBookData(message: any) {
     console.log("set service", message);
     return this.searchBookData.next({ books: message });
@@ -106,4 +109,13 @@ getWishListBooks(){
     return this.searchBookData.asObservable();
   }
 
+  getBookReview(data){
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem('token') }) }
+    return this.httpService.get(`${this.baseUrl}Review/${data}`,true,options)
+  }
+  
+  addBookReview(bookId,data) {
+    let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer '+localStorage.getItem('token') }) }
+    return this.httpService.post(`${this.baseUrl}Review/${bookId}`,data, true,options)
+  }
 }

@@ -11,6 +11,7 @@ export class WishListComponent implements OnInit {
 wishListBookArray=[];
 displayWishList=true;
 length;
+review:any;
   constructor(private bookService:BookService, private dataService:DataService) { }
 
   displayBooks() {
@@ -18,6 +19,7 @@ length;
       this.wishListBookArray = result['data'];
       this.wishListBookArray.reverse();
       this.length=this.wishListBookArray.length;
+      this.review=false
       console.log(this.wishListBookArray);
     },
       (error) => {
@@ -27,6 +29,7 @@ length;
 
   ngOnInit(): void {
     this.dataService.currentMessage.subscribe(data => { this.displayBooks() });
+   
   }
 
 }
