@@ -19,7 +19,21 @@
     width: 30px;
     height: 30px;
 }
+.star{
+    width: 15px;
+    height: 15px;
+    margin-top: 8px;
+    margin-left: 3px;
+}
 
+
+
+.star1{
+    width: 15px;
+    height: 15px;
+    margin-top: 8px;
+    margin-left: 3px;
+}
 .user-name{
     font-size: medium;
     font-weight: bold;
@@ -27,19 +41,31 @@
     margin-left:7px;
     margin-top: 2.5px;
 }
-
+.empty-star{
+    width: 25px;
+    height: 25px;
+  //  margin-top: 10px;
+  
+}
 .book-review{
     display: flex;
     flex-direction: column;
     max-width: 550px;
-  //  flex-wrap: wrap;
+ 
   
+}
+
+.rate-book{
+    font-size: x-large;
+    font-weight: bold;
+    margin-top: 2px;
+   
 }
 .review{
     font-size: small;
-   // margin-top: 2px;
+  
     display: flex;
-  // 
+  
 }
 .post-button{
     margin-top: 25px;
@@ -50,6 +76,12 @@
     color: white;
     border: none;
     outline: none;
+}
+.star-margin{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+
 }
 
 @media screen and (max-width:900px) {
@@ -63,6 +95,32 @@
     
 .comment{
     width: 75%;
- 
 }
+
+
 }
+
+
+@media screen and (max-width:400px) {
+    .empty-star{
+       
+        margin-top: 14px;
+      
+    }
+    .comment-button-div{
+        width: 111%;
+    }
+    .post-button{
+       
+        margin-left: 7px;
+      
+    }
+      
+    .comment{
+        width: 70%;
+    }
+    .star-margin{
+        margin-left: 0px;
+    }
+    
+    }
